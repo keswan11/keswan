@@ -49,7 +49,10 @@
           <textarea style="font-size:13.5px; width:310px; height:100px;" class="form-control" type="text" name="detail_wilayah" placeholder="Apabila anda mengisi Wilayah Pengajuan Provinsi Jawa Barat isikan Detail dengan contoh Kota Bandung, Kota Bogor"></textarea>';
           echo '</div></div>';
           ?>
-          <div class="box box-widget widget-user">
+          
+		  
+		  
+		  <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-blue-active">
               <h3 class="widget-user-username">Detail Peralatan</h3>
@@ -74,9 +77,16 @@
                      '<div class="staticParent"><br><b><text style="margin-left:30px; font-size:13.5px;">Jumlah : </text></b>
 
                        <input type="text" class="child" style="width:150px; padding:5px; font-size:14px;" name="'.$syarat->id_jenis_peralatan.'">
-                     </div>
+							
+							
+							<label class="radio-inline"><input type="radio" class="child" name="1" value="1">Ada</label>
+							<label class="radio-inline"><input type="radio" name="1" value="2">Tidak Ada</label>
+					 
+					 
+					 </div>
                      </li>';
                    }
+				   
                    echo '</ul></li>';
 
                  }
@@ -88,7 +98,13 @@
                     '<div class="staticParent"><br><b><text style="margin-left:30px; font-size:13.5px;">Jumlah : </text></b>
 
                     <input type="text" class="staticParent child" style="width:150px; padding:5px; font-size:14px;" name="'.$syarat->id_jenis_peralatan.'">
-                    </div>
+                    
+					
+					<label class="radio-inline"><input type="radio" class="child" name="1" value="1">Ada</label>
+					<label class="radio-inline"><input type="radio" name="1" value="2">Tidak Ada</label>
+					 
+					
+					</div>
                     </li>';
 
                   }
