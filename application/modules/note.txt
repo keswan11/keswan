@@ -1,0 +1,12 @@
+Ubah link master role operator di menu management menjadi operator/role_operator
+
+Folder yang harus menjadi datatable
+menu_management (udah)
+jenis_peralatan (udah)
+jenis_warga (udah)
+kategori_jenis_peralatan (udah)
+sub_kategori_jenis_peralatan (udah)
+jenis_biodata (udah)
+jenis_member (udah)
+jenis_pengajuan (udah)
+jenis_persyaratan
