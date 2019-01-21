@@ -79,8 +79,8 @@
                        <input type="text" class="child" style="width:150px; padding:5px; font-size:14px;" name="'.$syarat->id_jenis_peralatan.'">
 							
 							
-							<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="1">Ada</label>
-							<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="2" checked="checked">Tidak Ada</label>
+							<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="1" >Ada</label>
+							<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="2" >Tidak Ada</label>
 					
 					 
 					 </div>
@@ -101,7 +101,7 @@
                     
 					
 					<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="1">Ada</label>
-					<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="2" checked="checked">Tidak Ada</label>
+					<label class="radio-inline"><input type="radio" name="status_peralatan'.$syarat->id_jenis_peralatan.'" value="2" >Tidak Ada</label>
 					 
 					
 					</div>
