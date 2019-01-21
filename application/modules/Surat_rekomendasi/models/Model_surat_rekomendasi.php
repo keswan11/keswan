@@ -258,6 +258,7 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
 		$id_wilayah=$this->input->post('id_wilayah');
 		$id_status_pengajuan=1;
     $detail_wilayah=$this->input->post('detail_wilayah');
+    //$id_jenis_peralatan=$this->get_keterangan_persyaratan($id_jenis_peralatan); //tambahan
 		$dpengajuan=$this->get_persyaratan_by_jenis_pengajuan($id_jenis_pengajuan);
 
 		$data_list_surat_rekomendasi=array(
@@ -277,12 +278,13 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
 			$id_pengajuan=$data_terakhir->id_pengajuan;
 		}
 
-		$sql="INSERT INTO tb_data_pengajuan_surat_rekomendasi (id_pengajuan,id_jenis_peralatan,jumlah_jenis_peralatan)
-		VALUES";
+		$sql="INSERT INTO tb_data_pengajuan_surat_rekomendasi (id_pengajuan,id_jenis_peralatan,jumlah_jenis_peralatan,id_status_peralatan)
+		VALUES"; //ditambah id_status_peralatan 
 		$i=0;
 		foreach($dpengajuan as $data)
 		{
 			$jumlah=$this->input->post($data->id_jenis_peralatan);
+      $id_status_peralatan=$this->input->post('status_peralatan'.$data->id_jenis_peralatan); //tambahan
 			if($jumlah=="" || $jumlah==null)
 			{
 				$jumlah=0;
@@ -292,7 +294,7 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
 			{
 				$sql.=" ,";
 			}
-			$sql.=" (".$id_pengajuan.",".$data->id_jenis_peralatan.",".$jumlah.")";
+			$sql.=" (".$id_pengajuan.",".$data->id_jenis_peralatan.",".$jumlah.",".$id_status_peralatan.")";
 			$i+=1;
 		}
 		$sql.=";";
