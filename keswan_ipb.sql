@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2019 at 11:45 AM
+-- Generation Time: Jan 21, 2019 at 09:13 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -382,14 +382,14 @@ CREATE TABLE `tb_data_pengajuan_surat_rekomendasi` (
   `jumlah_jenis_peralatan` int(20) NOT NULL,
   `ket_adm` text,
   `ket_lap` text,
-  `ext` tinyint(1) NOT NULL
+  `id_status_peralatan` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tb_data_pengajuan_surat_rekomendasi`
 --
 
-INSERT INTO `tb_data_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_jenis_peralatan`, `jumlah_jenis_peralatan`, `ket_adm`, `ket_lap`, `ext`) VALUES
+INSERT INTO `tb_data_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_jenis_peralatan`, `jumlah_jenis_peralatan`, `ket_adm`, `ket_lap`, `id_status_peralatan`) VALUES
 (51, 86, 324165, 'ok', 'ok', 0),
 (51, 18, 0, '', '', 0),
 (51, 19, 0, '', '', 0),
@@ -530,7 +530,92 @@ INSERT INTO `tb_data_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_jenis_per
 (53, 82, 1, NULL, NULL, 0),
 (53, 83, 0, NULL, NULL, 0),
 (53, 84, 0, NULL, NULL, 0),
-(53, 85, 1, NULL, NULL, 0);
+(53, 85, 1, NULL, NULL, 0),
+(62, 1, 21, 'ok', 'oke ada\r\n', 1),
+(62, 2, 123, '', '', 1),
+(62, 3, 32, '', '', 1),
+(62, 4, 12, '', '', 1),
+(62, 5, 42, '', '', 1),
+(62, 6, 12, '', '', 1),
+(62, 7, 0, '', '', 2),
+(62, 8, 0, '', '', 2),
+(62, 9, 0, '', '', 2),
+(62, 10, 0, '', '', 2),
+(62, 11, 0, '', '', 2),
+(62, 12, 0, '', '', 2),
+(62, 13, 0, '', '', 2),
+(62, 14, 0, '', '', 2),
+(62, 15, 0, '', '', 2),
+(62, 16, 0, '', '', 2),
+(62, 17, 0, '', '', 2),
+(62, 18, 0, '', '', 2),
+(62, 19, 0, '', '', 2),
+(62, 20, 0, '', '', 2),
+(62, 21, 0, '', '', 2),
+(62, 22, 0, '', '', 2),
+(62, 23, 0, '', '', 2),
+(62, 24, 0, '', '', 2),
+(62, 25, 0, '', '', 2),
+(62, 26, 0, '', '', 2),
+(62, 27, 0, '', '', 2),
+(62, 28, 0, '', '', 2),
+(62, 29, 0, '', '', 2),
+(62, 30, 0, '', '', 2),
+(62, 31, 0, '', '', 2),
+(62, 32, 0, '', '', 2),
+(62, 33, 0, '', '', 2),
+(62, 34, 0, '', '', 2),
+(62, 35, 0, '', '', 2),
+(62, 36, 0, '', '', 2),
+(62, 37, 0, '', '', 2),
+(62, 38, 0, '', '', 2),
+(62, 39, 0, '', '', 2),
+(62, 40, 0, '', '', 2),
+(62, 41, 0, '', '', 2),
+(62, 42, 0, '', '', 2),
+(62, 43, 0, '', '', 2),
+(62, 44, 0, '', '', 2),
+(62, 45, 0, '', '', 2),
+(62, 46, 0, '', '', 2),
+(62, 47, 0, '', '', 2),
+(62, 48, 0, '', '', 2),
+(62, 49, 0, '', '', 2),
+(62, 50, 0, '', '', 2),
+(62, 51, 0, '', '', 2),
+(62, 52, 0, '', '', 2),
+(62, 53, 0, '', '', 2),
+(62, 54, 0, '', '', 2),
+(62, 55, 0, '', '', 2),
+(62, 56, 0, '', '', 2),
+(62, 57, 0, '', '', 2),
+(62, 58, 0, '', '', 2),
+(62, 59, 0, '', '', 2),
+(62, 60, 0, '', '', 2),
+(62, 61, 0, '', '', 2),
+(62, 62, 0, '', '', 2),
+(62, 63, 0, '', '', 2),
+(62, 64, 0, '', '', 2),
+(62, 65, 0, '', '', 2),
+(62, 66, 0, '', '', 2),
+(62, 67, 0, '', '', 2),
+(62, 68, 0, '', '', 2),
+(62, 69, 0, '', '', 2),
+(62, 70, 0, '', '', 2),
+(62, 71, 0, '', '', 2),
+(62, 72, 0, '', '', 2),
+(62, 73, 0, '', '', 2),
+(62, 74, 0, '', '', 2),
+(62, 75, 0, '', '', 2),
+(62, 76, 0, '', '', 2),
+(62, 77, 0, '', '', 2),
+(62, 78, 0, '', '', 2),
+(62, 79, 0, '', '', 2),
+(62, 80, 0, '', '', 2),
+(62, 81, 0, '', '', 2),
+(62, 82, 0, '', '', 2),
+(62, 83, 0, '', '', 2),
+(62, 84, 0, '', '', 2),
+(62, 85, 0, '', '', 2);
 
 -- --------------------------------------------------------
 
@@ -1654,7 +1739,8 @@ CREATE TABLE `tb_list_pengajuan_surat_rekomendasi` (
 INSERT INTO `tb_list_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_member`, `id_operator`, `id_jenis_pengajuan`, `id_wilayah`, `detail_wilayah`, `id_status_pengajuan`, `tgl_dibuat`) VALUES
 (51, 5, 1071, 11, 3201, 'Coba', '5', '2017-12-10 04:19:02'),
 (52, 6, NULL, 15, 1, '', '1', '2017-12-10 04:28:13'),
-(53, 3, NULL, 14, 33, 'cimanggu permai', '1', '2019-01-19 09:05:31');
+(53, 3, NULL, 14, 33, 'cimanggu permai', '1', '2019-01-19 09:05:31'),
+(62, 3, 3, 14, 1, '', '4', '2019-01-21 08:00:44');
 
 -- --------------------------------------------------------
 
@@ -6060,6 +6146,25 @@ INSERT INTO `tb_status_pengajuan` (`id_status_pengajuan`, `status_pengajuan`) VA
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tb_status_peralatan`
+--
+
+CREATE TABLE `tb_status_peralatan` (
+  `id_status_peralatan` int(11) NOT NULL,
+  `nama_status_peralatan` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tb_status_peralatan`
+--
+
+INSERT INTO `tb_status_peralatan` (`id_status_peralatan`, `nama_status_peralatan`) VALUES
+(1, 'Ada'),
+(2, 'Tidak ada');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tb_sub_kategori_jenis_peralatan`
 --
 
@@ -6806,6 +6911,12 @@ ALTER TABLE `tb_status_pengajuan`
   ADD UNIQUE KEY `id_status_pengajuan` (`id_status_pengajuan`);
 
 --
+-- Indexes for table `tb_status_peralatan`
+--
+ALTER TABLE `tb_status_peralatan`
+  ADD PRIMARY KEY (`id_status_peralatan`);
+
+--
 -- Indexes for table `tb_sub_kategori_jenis_peralatan`
 --
 ALTER TABLE `tb_sub_kategori_jenis_peralatan`
@@ -6825,7 +6936,7 @@ ALTER TABLE `tb_wilayah`
 -- AUTO_INCREMENT for table `tabel_menu`
 --
 ALTER TABLE `tabel_menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `tb_data_sip`
@@ -6861,7 +6972,7 @@ ALTER TABLE `tb_list_pengajuan_surat_izin`
 -- AUTO_INCREMENT for table `tb_list_pengajuan_surat_rekomendasi`
 --
 ALTER TABLE `tb_list_pengajuan_surat_rekomendasi`
-  MODIFY `id_pengajuan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id_pengajuan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `tb_menu_member`
