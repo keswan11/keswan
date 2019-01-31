@@ -241,7 +241,38 @@ class Page_operator extends CI_Controller {
       return flase;
     //$this->load->view('cetak_lampiran_4');
   }
-  
+  function cetak_excell($id_pengajuan){
+     /*$data = array( 'title' => 'Laporan.xls','data_booking' => $this->Page_operator_model->cetak_excel($id_pengajuan),'data_baru' => $this->Page_operator_model->cetak_excel_header($id_pengajuan));
+     $this->load->view('vw_laporan_excel',$data);*/
+     $data['title'] = " Lampiran";
+     $data['data_booking'] = $this->Page_operator_model->cetak_excel($id_pengajuan);
+     $data['data_baru'] = $this->Page_operator_model->cetak_excel_header($id_pengajuan);
+     $this->load->view('vw_laporan_excel',$data);
+  }
+   function cetak_excell_1($id_pengajuan){
+     /*$data = array( 'title' => 'Laporan.xls','data_booking' => $this->Page_operator_model->cetak_excel($id_pengajuan),'data_baru' => $this->Page_operator_model->cetak_excel_header($id_pengajuan));
+     $this->load->view('vw_laporan_excel',$data);*/
+     $data['title'] = " Lampiran";
+     $data['data_booking'] = $this->Page_operator_model->cetak_excel($id_pengajuan);
+     $data['data_baru'] = $this->Page_operator_model->cetak_excel_header($id_pengajuan);
+     $this->load->view('vw_laporan_excel',$data);
+  }
+  function cetak_excell_2($id_pengajuan){
+     /*$data = array( 'title' => 'Laporan.xls','data_booking' => $this->Page_operator_model->cetak_excel($id_pengajuan),'data_baru' => $this->Page_operator_model->cetak_excel_header($id_pengajuan));
+     $this->load->view('vw_laporan_excel',$data);*/
+     $data['title'] = " Lampiran";
+     $data['data_booking'] = $this->Page_operator_model->cetak_excel($id_pengajuan);
+     $data['data_baru'] = $this->Page_operator_model->cetak_excel_header($id_pengajuan);
+     $this->load->view('vw_laporan_excel',$data);
+  }
+  function cetak_excell_3($id_pengajuan){
+     /*$data = array( 'title' => 'Laporan.xls','data_booking' => $this->Page_operator_model->cetak_excel($id_pengajuan),'data_baru' => $this->Page_operator_model->cetak_excel_header($id_pengajuan));
+     $this->load->view('vw_laporan_excel',$data);*/
+     $data['title'] = " Lampiran";
+     $data['data_booking'] = $this->Page_operator_model->cetak_excel($id_pengajuan);
+     $data['data_baru'] = $this->Page_operator_model->cetak_excel_header($id_pengajuan);
+     $this->load->view('vw_laporan_excel',$data);
+  }
   function cetak_drhk($id_pengajuan)
   {
       $data['title'] = "Cetak";
