@@ -185,15 +185,18 @@
                           {
                                 if($data->id_jenis_pengajuan == 13 || $data->id_jenis_pengajuan == 17)
                                 {
-                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_1/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_1/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px">';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_1/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
                                 }
                                 elseif($data->id_jenis_pengajuan == 16 || $data->id_jenis_pengajuan == 12)
                                 {
-                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_2/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_2/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_2/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
                                 }
                                 elseif($data->id_jenis_pengajuan == 14 || $data->id_jenis_pengajuan == 18)
                                 {
                                   echo '<a href="'.base_url().'page_operator/cetak_lampiran_3/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_3/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
                                 }
                                 elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 15)
                                 {
