@@ -90,7 +90,7 @@
                     <td>
                       <?php echo anchor(base_url().$link_jenis_surat."/detail/".$data->id_jenis_pengajuan."/".$data->id_pengajuan, 'Detail', array('class' => 'btn btn-block btn-info')); ?>  
                     </td>
-                      <td>
+                      <td align="center">
                         <?php
                             //SIPP ATR PKB INSEMINATOOR KESWAN
                           if($data->id_status_pengajuan == 5)
@@ -197,7 +197,8 @@
                                 }
                                 elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 15)
                                 {
-                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px">';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
                                 }
                             }
                           else{
