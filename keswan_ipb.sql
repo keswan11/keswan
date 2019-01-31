@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2019 at 01:53 PM
+-- Generation Time: Jan 31, 2019 at 07:37 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -616,34 +616,34 @@ INSERT INTO `tb_data_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_jenis_per
 (62, 83, 0, '', '', 2),
 (62, 84, 0, '', '', 2),
 (62, 85, 0, '', '', 2),
-(64, 86, 2, NULL, NULL, 1),
-(64, 18, 1, NULL, NULL, 1),
-(64, 19, 2, NULL, NULL, 1),
-(64, 31, 0, NULL, NULL, 1),
-(64, 32, 0, NULL, NULL, 2),
-(64, 33, 0, NULL, NULL, 2),
-(64, 38, 1, NULL, NULL, 2),
-(64, 39, 0, NULL, NULL, 2),
-(64, 40, 0, NULL, NULL, 1),
-(64, 41, 0, NULL, NULL, 1),
-(64, 42, 0, NULL, NULL, 1),
-(64, 47, 0, NULL, NULL, 1),
-(64, 48, 0, NULL, NULL, 1),
-(64, 49, 0, NULL, NULL, 1),
-(64, 50, 0, NULL, NULL, 2),
-(64, 51, 0, NULL, NULL, 2),
-(64, 52, 0, NULL, NULL, 2),
-(64, 55, 0, NULL, NULL, 1),
-(64, 67, 0, NULL, NULL, 1),
-(64, 68, 0, NULL, NULL, 1),
-(64, 69, 0, NULL, NULL, 1),
-(64, 70, 0, NULL, NULL, 2),
-(64, 71, 0, NULL, NULL, 2),
-(64, 72, 0, NULL, NULL, 2),
-(64, 73, 0, NULL, NULL, 2),
-(64, 74, 1, NULL, NULL, 1),
-(64, 75, 1, NULL, NULL, 1),
-(64, 76, 1, NULL, NULL, 1);
+(64, 86, 2, '', NULL, 1),
+(64, 18, 1, '', NULL, 1),
+(64, 19, 2, '', NULL, 1),
+(64, 31, 0, '', NULL, 1),
+(64, 32, 0, '', NULL, 2),
+(64, 33, 0, '', NULL, 2),
+(64, 38, 1, '', NULL, 2),
+(64, 39, 0, '', NULL, 2),
+(64, 40, 0, '', NULL, 1),
+(64, 41, 0, '', NULL, 1),
+(64, 42, 0, '', NULL, 1),
+(64, 47, 0, '', NULL, 1),
+(64, 48, 0, '', NULL, 1),
+(64, 49, 0, '', NULL, 1),
+(64, 50, 0, '', NULL, 2),
+(64, 51, 0, '', NULL, 2),
+(64, 52, 0, '', NULL, 2),
+(64, 55, 0, '', NULL, 1),
+(64, 67, 0, '', NULL, 1),
+(64, 68, 0, '', NULL, 1),
+(64, 69, 0, '', NULL, 1),
+(64, 70, 0, '', NULL, 2),
+(64, 71, 0, '', NULL, 2),
+(64, 72, 0, '', NULL, 2),
+(64, 73, 0, '', NULL, 2),
+(64, 74, 1, '', NULL, 1),
+(64, 75, 1, '', NULL, 1),
+(64, 76, 1, '', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -931,7 +931,7 @@ INSERT INTO `tb_jenis_peralatan` (`id_jenis_peralatan`, `id_kategori_peralatan`,
 (35, 2, 3, 'Urin Catheter', NULL),
 (36, 2, 3, 'IV Catheter', NULL),
 (37, 2, 3, 'Nebulizer', NULL),
-(38, 2, 5, 'Gunting Bengkok dan Lurus', NULL),
+(38, 2, 4, 'Gunting Bengkok dan Lurus', NULL),
 (39, 2, 4, 'Arteri Klem', NULL),
 (40, 2, 6, 'Pinset', NULL),
 (41, 2, 6, 'Scalpel', NULL),
@@ -999,7 +999,25 @@ INSERT INTO `tb_jenis_peralatan` (`id_jenis_peralatan`, `id_kategori_peralatan`,
 (103, 2, 1, 'Automatic injection\r\n', NULL),
 (104, 2, 1, 'Nitrogen (N2) cair dan semen beku/cair\r\n', NULL),
 (105, 2, 1, 'Gun inseminasi buatan\r\n', NULL),
-(106, 2, 1, 'Termos N2 cair atau kontainer transpor dengan kapasitas 1-2 liter\r\n', NULL);
+(106, 2, 1, 'Termos N2 cair atau kontainer transpor dengan kapasitas 1-2 liter\r\n', NULL),
+(107, 2, 5, 'Gunting bengkok dan lurus', NULL),
+(108, 2, 6, 'Gunting bengkok dan lurus', NULL),
+(109, 2, 5, 'Arteri Klem\r\n', NULL),
+(110, 2, 6, 'Arteri Klem\r\n', NULL),
+(111, 2, 4, 'Pinset', NULL),
+(112, 2, 5, 'Pinset', NULL),
+(113, 2, 4, 'Scalpel', NULL),
+(114, 2, 5, 'Scalpel', NULL),
+(115, 2, 4, 'Kidney Tray', NULL),
+(116, 2, 5, 'Kidney Tray', NULL),
+(117, 2, 4, 'Benang Operasi', NULL),
+(118, 2, 6, 'Benang Operasi', NULL),
+(119, 2, 4, 'Tabung Oksigen Lengkap', NULL),
+(120, 2, 6, 'Tabung Oksigen Lengkap', NULL),
+(121, 2, 4, 'Mesin Anasthesi Gas', NULL),
+(122, 2, 6, 'Mesin Anasthesi Gas', NULL),
+(123, 2, 4, 'Scaler Compressor', NULL),
+(124, 2, 4, 'Scaler Compressor', NULL);
 
 -- --------------------------------------------------------
 
@@ -1790,7 +1808,7 @@ INSERT INTO `tb_list_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_member`, 
 (53, 3, NULL, 14, 33, 'cimanggu permai', '1', '2019-01-19 09:05:31'),
 (62, 3, 3, 14, 1, '', '4', '2019-01-21 08:00:44'),
 (63, 3, NULL, 11, 1, '', '1', '2019-01-30 07:35:09'),
-(64, 3, NULL, 11, 1, 'asdasdasdasd', '1', '2019-01-30 07:55:59');
+(64, 3, 2, 11, 1, 'asdasdasdasd', '3', '2019-01-30 13:23:16');
 
 -- --------------------------------------------------------
 
@@ -7004,13 +7022,13 @@ ALTER TABLE `tb_data_sipp`
 -- AUTO_INCREMENT for table `tb_jenis_peralatan`
 --
 ALTER TABLE `tb_jenis_peralatan`
-  MODIFY `id_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
+  MODIFY `id_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori_jenis_peralatan`
 --
 ALTER TABLE `tb_kategori_jenis_peralatan`
-  MODIFY `id_kategori_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kategori_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tb_list_pengajuan_surat_izin`
