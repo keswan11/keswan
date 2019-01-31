@@ -20,14 +20,13 @@ class Model_surat_rekomendasi extends CI_Model
     $id_pengajuan=$this->uri->segment(3);
     $id_status=$this->uri->segment(4);
     $id_jenis_pengajuan=$this->uri->segment(5);
-    $return_page=str_replace('//','/',urldecode($this->uri->segment(6)));
     
     $sql="UPDATE tb_list_pengajuan_surat_rekomendasi SET id_status_pengajuan=$id_status
     WHERE id_pengajuan=$id_pengajuan";
     $this->db->query($sql);
     echo "<script>
     alert('Status berhasil dirubah !');
-   window.location.href='".$return_page."';
+   window.location.href='".base_url()."page_operator/index/kepala_dinas_otovet_pusat/surket_fasilitas_ambulatori_pmdn';
     </script>";
   }
 

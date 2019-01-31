@@ -210,18 +210,18 @@
                         if($data->id_status_pengajuan ==1){
                           echo 
                           anchor(
-                              base_url().$link_jenis_surat."/update_status/".$data->id_pengajuan."/2/".$data->id_jenis_pengajuan.'/'.urlencode($_SERVER['REQUEST_URI']), 
+                              base_url().$link_jenis_surat."/update_status/".$data->id_pengajuan."/2/".$data->id_jenis_pengajuan.urldecode($_SERVER['REQUEST_URI']), 
                               
                               $status[$data->id_status_pengajuan], array('class' => 'btn btn-block btn-success')
-                              );
+                              );//urlencode diganti decode 
                         }else if($data->id_status_pengajuan == 4)
                         {
                             echo 
                             anchor(
-                                base_url().$link_jenis_surat."/terbitkan_surat/".$data->id_jenis_pengajuan."/".$data->id_pengajuan.'/'.urlencode($_SERVER['REQUEST_URI']), 
+                                base_url().$link_jenis_surat."/terbitkan_surat/".$data->id_jenis_pengajuan."/".$data->id_pengajuan.urldecode($_SERVER['REQUEST_URI']), 
                                 
                                 $status[$data->id_status_pengajuan], array('class' => 'btn btn-block btn-success')
-                              );
+                              ); //urlencode diganti decode 
                         }
                         else if ($data->id_status_pengajuan == 5){
                           echo "Sudah diterbitkan";
