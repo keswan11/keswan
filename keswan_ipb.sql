@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 21, 2019 at 09:13 AM
+-- Generation Time: Jan 30, 2019 at 01:53 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -615,7 +615,35 @@ INSERT INTO `tb_data_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_jenis_per
 (62, 82, 0, '', '', 2),
 (62, 83, 0, '', '', 2),
 (62, 84, 0, '', '', 2),
-(62, 85, 0, '', '', 2);
+(62, 85, 0, '', '', 2),
+(64, 86, 2, NULL, NULL, 1),
+(64, 18, 1, NULL, NULL, 1),
+(64, 19, 2, NULL, NULL, 1),
+(64, 31, 0, NULL, NULL, 1),
+(64, 32, 0, NULL, NULL, 2),
+(64, 33, 0, NULL, NULL, 2),
+(64, 38, 1, NULL, NULL, 2),
+(64, 39, 0, NULL, NULL, 2),
+(64, 40, 0, NULL, NULL, 1),
+(64, 41, 0, NULL, NULL, 1),
+(64, 42, 0, NULL, NULL, 1),
+(64, 47, 0, NULL, NULL, 1),
+(64, 48, 0, NULL, NULL, 1),
+(64, 49, 0, NULL, NULL, 1),
+(64, 50, 0, NULL, NULL, 2),
+(64, 51, 0, NULL, NULL, 2),
+(64, 52, 0, NULL, NULL, 2),
+(64, 55, 0, NULL, NULL, 1),
+(64, 67, 0, NULL, NULL, 1),
+(64, 68, 0, NULL, NULL, 1),
+(64, 69, 0, NULL, NULL, 1),
+(64, 70, 0, NULL, NULL, 2),
+(64, 71, 0, NULL, NULL, 2),
+(64, 72, 0, NULL, NULL, 2),
+(64, 73, 0, NULL, NULL, 2),
+(64, 74, 1, NULL, NULL, 1),
+(64, 75, 1, NULL, NULL, 1),
+(64, 76, 1, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -883,31 +911,31 @@ INSERT INTO `tb_jenis_peralatan` (`id_jenis_peralatan`, `id_kategori_peralatan`,
 (15, 1, 1, 'ruang perpustakaan', NULL),
 (16, 1, 1, 'gudang bahan dan peralatan', NULL),
 (17, 1, 1, 'ruang istirahat dokter/paramedik', NULL),
-(18, 2, 2, 'Thermometer', NULL),
-(19, 2, 2, 'Stetoscope', NULL),
-(20, 2, 2, 'Percusi Hammer', NULL),
-(21, 2, 2, 'Opthalmoscope', NULL),
-(22, 2, 2, 'Otoscope', NULL),
-(23, 2, 2, 'Doppler atau USG', NULL),
-(24, 2, 2, 'X-ray', NULL),
-(25, 2, 2, 'EKG', NULL),
-(26, 2, 3, 'Mikroskop Binocular', NULL),
-(27, 2, 3, 'Centrifuge', NULL),
-(28, 2, 3, 'Alat Periksa Darah', NULL),
-(29, 2, 3, 'Alat Urinalisis', NULL),
+(18, 2, 1, 'Thermometer', NULL),
+(19, 2, 1, 'Stetoscope', NULL),
+(20, 2, 1, 'Percusi Hammer', NULL),
+(21, 2, 1, 'Opthalmoscope', NULL),
+(22, 2, 1, 'Otoscope', NULL),
+(23, 2, 1, 'Doppler atau USG', NULL),
+(24, 2, 1, 'X-ray', NULL),
+(25, 2, 1, 'EKG', NULL),
+(26, 2, 2, 'Mikroskop Binocular', NULL),
+(27, 2, 2, 'Centrifuge', NULL),
+(28, 2, 2, 'Alat Periksa Darah', NULL),
+(29, 2, 2, 'Alat Urinalisis', NULL),
 (30, 2, 3, 'Mesin Kimia Darah', NULL),
-(31, 2, 4, 'Disposible Syringe', NULL),
-(32, 2, 4, 'Disposible Needle', NULL),
-(33, 2, 4, 'Infusion Set', NULL),
-(34, 2, 4, 'Feeding Force Catheter', NULL),
-(35, 2, 4, 'Urin Catheter', NULL),
-(36, 2, 4, 'IV Catheter', NULL),
-(37, 2, 4, 'Nebulizer', NULL),
+(31, 2, 3, 'Disposible Syringe', NULL),
+(32, 2, 3, 'Disposible Needle', NULL),
+(33, 2, 3, 'Infusion Set', NULL),
+(34, 2, 3, 'Feeding Force Catheter', NULL),
+(35, 2, 3, 'Urin Catheter', NULL),
+(36, 2, 3, 'IV Catheter', NULL),
+(37, 2, 3, 'Nebulizer', NULL),
 (38, 2, 5, 'Gunting Bengkok dan Lurus', NULL),
-(39, 2, 5, 'Arteri Klem', NULL),
-(40, 2, 5, 'Pinset', NULL),
-(41, 2, 5, 'Scalpel', NULL),
-(42, 2, 5, 'Kidney Tray', NULL),
+(39, 2, 4, 'Arteri Klem', NULL),
+(40, 2, 6, 'Pinset', NULL),
+(41, 2, 6, 'Scalpel', NULL),
+(42, 2, 6, 'Kidney Tray', NULL),
 (43, 2, 5, 'Benang Operasi', NULL),
 (44, 2, 5, 'Tabung Oksigen Lengkap', NULL),
 (45, 2, 5, 'Mesin Anasthesi Gas', NULL),
@@ -935,8 +963,8 @@ INSERT INTO `tb_jenis_peralatan` (`id_jenis_peralatan`, `id_kategori_peralatan`,
 (67, 4, 1, 'Alkohol', NULL),
 (68, 4, 1, 'Antiseptik', NULL),
 (69, 4, 1, 'Antibiotik', NULL),
-(70, 4, 1, 'Anti Peuretik/Analgesik', NULL),
-(71, 4, 1, 'Anti Histamin', NULL),
+(70, 4, 1, 'Antipiretik\r\n', NULL),
+(71, 4, 1, 'Antihistamina\r\n', NULL),
 (72, 4, 1, 'Anti Parasit', NULL),
 (73, 4, 1, 'Lidocain', NULL),
 (74, 4, 1, 'Sedativa', NULL),
@@ -951,7 +979,27 @@ INSERT INTO `tb_jenis_peralatan` (`id_jenis_peralatan`, `id_kategori_peralatan`,
 (83, 4, 1, 'Obat Oral', NULL),
 (84, 4, 1, 'Antitoksin', NULL),
 (85, 4, 1, 'Antidota', NULL),
-(86, 1, 1, 'Kendaraan dan Tulisan \"Jasa Kesehatan Hewan Ambulatori\"', NULL);
+(86, 1, 1, 'Kendaraan dan Tulisan \"Jasa Kesehatan Hewan Ambulatori\"', NULL),
+(87, 4, 1, 'Analgesik', NULL),
+(88, 2, 1, 'Cateter intrauterine', NULL),
+(89, 2, 1, 'spuit (50cc, 20cc dan 10cc)', NULL),
+(90, 2, 1, 'Obat bebas', NULL),
+(91, 3, 1, 'Pakaian lapangan', NULL),
+(92, 3, 1, 'Plastic sheath', NULL),
+(93, 3, 1, 'Plastic gloves\r\n', NULL),
+(94, 3, 1, 'Jas hujan\r\n', NULL),
+(95, 3, 1, 'Sepatu bot\r\n', NULL),
+(96, 3, 1, 'Lampu senter\r\n', NULL),
+(97, 3, 1, 'Handuk\r\n', NULL),
+(98, 3, 1, 'Tali\r\n', NULL),
+(99, 3, 1, 'Sabun\r\n', NULL),
+(100, 3, 1, 'Kertas tisu\r\n', NULL),
+(101, 3, 1, 'Tas inseminasi buatan', NULL),
+(102, 2, 1, 'Uterine injector/cateter intrauterine\r\n', NULL),
+(103, 2, 1, 'Automatic injection\r\n', NULL),
+(104, 2, 1, 'Nitrogen (N2) cair dan semen beku/cair\r\n', NULL),
+(105, 2, 1, 'Gun inseminasi buatan\r\n', NULL),
+(106, 2, 1, 'Termos N2 cair atau kontainer transpor dengan kapasitas 1-2 liter\r\n', NULL);
 
 -- --------------------------------------------------------
 
@@ -1628,7 +1676,7 @@ INSERT INTO `tb_kategori_jenis_peralatan` (`id_kategori_jenis_peralatan`, `nama_
 (1, 'Fasilitas'),
 (2, 'Peralatan'),
 (3, 'Perlengkapan'),
-(4, 'Instalasi Farmasi yang memiliki obat-obatan minimal');
+(4, 'Instalasi Farmasi yang memiliki obat-obatan minimal\r\n');
 
 -- --------------------------------------------------------
 
@@ -1740,7 +1788,9 @@ INSERT INTO `tb_list_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_member`, 
 (51, 5, 1071, 11, 3201, 'Coba', '5', '2017-12-10 04:19:02'),
 (52, 6, NULL, 15, 1, '', '1', '2017-12-10 04:28:13'),
 (53, 3, NULL, 14, 33, 'cimanggu permai', '1', '2019-01-19 09:05:31'),
-(62, 3, 3, 14, 1, '', '4', '2019-01-21 08:00:44');
+(62, 3, 3, 14, 1, '', '4', '2019-01-21 08:00:44'),
+(63, 3, NULL, 11, 1, '', '1', '2019-01-30 07:35:09'),
+(64, 3, NULL, 11, 1, 'asdasdasdasd', '1', '2019-01-30 07:55:59');
 
 -- --------------------------------------------------------
 
@@ -6954,13 +7004,13 @@ ALTER TABLE `tb_data_sipp`
 -- AUTO_INCREMENT for table `tb_jenis_peralatan`
 --
 ALTER TABLE `tb_jenis_peralatan`
-  MODIFY `id_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `tb_kategori_jenis_peralatan`
 --
 ALTER TABLE `tb_kategori_jenis_peralatan`
-  MODIFY `id_kategori_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_kategori_jenis_peralatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tb_list_pengajuan_surat_izin`
@@ -6972,7 +7022,7 @@ ALTER TABLE `tb_list_pengajuan_surat_izin`
 -- AUTO_INCREMENT for table `tb_list_pengajuan_surat_rekomendasi`
 --
 ALTER TABLE `tb_list_pengajuan_surat_rekomendasi`
-  MODIFY `id_pengajuan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id_pengajuan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `tb_menu_member`
