@@ -212,19 +212,22 @@
           <div class="form-group">
             <h4 class="col-sm-3" style="margin-left:14px;">Upload Surat Permohonan</h4>
             <div class="col-sm-4">
-            <input type="file" class="form-control-file" name="surat_permohonan">
+            <input type="hidden" class="form-control-file" name="id_gambar[]" value="36">
+            <input type="file" class="form-control-file" name="userfile[]">
             </div>
           </div>
           <div class="form-group">
             <h4 class="col-sm-3" style="margin-left:14px;">Upload KTP Pemohon</h4>
             <div class="col-sm-4">
-            <input type="file" class="form-control-file" name="scan_ktp">
+            <input type="hidden" class="form-control-file" name="id_gambar[]" value="17">
+            <input type="file" class="form-control-file" name="userfile[]">
             </div>
           </div>
           <div class="form-group">
             <h4 class="col-sm-3" style="margin-left:14px;">Upload Bukti Pembayaran</h4>
             <div class="col-sm-4">
-            <input type="file" class="form-control-file" name="bukti_pembayaran">
+            <input type="hidden" class="form-control-file" name="id_gambar[]" value="35">
+            <input type="file" class="form-control-file" name="userfile[]">
             </div>
           </div>
           <span>*Masing-masing berkas Maksimal 1 Mb</span> <br>

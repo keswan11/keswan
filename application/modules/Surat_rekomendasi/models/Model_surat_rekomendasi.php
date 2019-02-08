@@ -276,7 +276,14 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $sql="SELECT * FROM tb_jenis_biodata";
     return $this->db->query($sql)->result();
   }
-
+  // function get_tempat_praktik($id_pengajuan=0){
+  //   $this->db->select("*");
+  //   $this->db->from("tb_data_tempat_praktik");
+  //   $this->db->join("tb_list_pengajuan_surat_rekomendasi","tb_list_pengajuan_surat_rekomendasi.id_tempat_praktik=tb_data_tempat_praktik.id_tempat_praktik");
+  //   $this->db->join("tb_jenis_biodata","tb_data_tempat_praktik.id_biodata_tempat_praktik=tb_jenis_biodata.id_jenis_biodata");
+  //   $this->db->where("tb_list_pengajuan_surat_rekomendasi.id_pengajuan",$id_pengajuan);
+  //   $query = $this->db->get();
+  // } gagal
 
 	function input_surat_rekomendasi()
 	{
@@ -330,28 +337,9 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $this->db->query($sql);
 
     //MENGISI DATA tb_data_berkas
-    $file_surat=$_FILES['surat_permohonan']['name'];
-    $file_ktp=$_FILES['scan_ktp']['name'];
-    $file_bukti=$_FILES['bukti_pembayaran']['name'];
-
-    $config['upload_path']          = '../images';
-    $config['allowed_types']        = 'gif|jpg|png|jpeg';
-    $config['encrypt_name']         = TRUE;
-    $config['max_size']             = '1024';
-    
-    $this->load->library('upload', $config);
-
-    $this->upload->do_upload('surat_permohonan');
-    $file = $this->upload->data();
-    $file_surat = $file['file_name'];
-
-    $this->upload->do_upload('scan_ktp');
-    $file = $this->upload->data();
-    $file_ktp = $file['file_name'];
-    
-    $this->upload->do_upload('bukti_pembayaran');
-    $file = $this->upload->data();
-    $file_bukti = $file['file_name'];
+    $gambar = $_FILES['userfile']['name'];
+    $aug = array();
+    $tgl = substr(md5(date('Y-m-d HH:mm:ss')), 0, 5);
 
     $this->db->select('MAX(id_berkas) AS id_terakhir');
     $this->db->from('tb_data_berkas');
@@ -359,13 +347,21 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $terakhir=$query_terakhir->row();
     $idRow=$terakhir->id_terakhir;
     $idRow_berkas=$idRow+1;
+    
+    foreach($gambar AS $key => $val){
+      $ext = explode('.', basename($_FILES['userfile']['name'][$key]));
 
-    $sql="INSERT INTO tb_data_berkas (id_berkas,id_biodata_berkas,isi_biodata_berkas) VALUES 
-    ('".$idRow_berkas."','36','".$file_surat."'),
-    ('".$idRow_berkas."','17','".$file_ktp."'),
-    ('".$idRow_berkas."','35','".$file_bukti."')
-    ";
-    $this->db->query($sql);
+      $path = $tgl."_".$key ."." . $ext[count($ext)-1];
+
+      move_uploaded_file($_FILES['userfile']['tmp_name'][$key], './images/'.$path);
+
+      $ug[] = array(
+        'id_berkas'  		    	=> $idRow_berkas,
+        'id_biodata_berkas' 	=> $_POST['id_gambar'][$key],
+        'isi_biodata_berkas' 	=> $path
+      );
+    }
+    $this->db->insert_batch('tb_data_berkas', $ug);
 
 		$id_jenis_pengajuan=$this->input->post('id_jenis_pengajuan');
 		$id_member=$this->session->userdata('id_member');
