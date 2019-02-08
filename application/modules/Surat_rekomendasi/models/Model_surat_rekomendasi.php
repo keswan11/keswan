@@ -296,8 +296,23 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $this->db->join('tb_jenis_biodata','tb_data_tempat_praktik.id_biodata_tempat_praktik=tb_jenis_biodata.id_jenis_biodata');
     $this->db->where('tb_list_pengajuan_surat_rekomendasi.id_pengajuan', $id_pengajuan);
     return $this->db->get()->result();
-
   } 
+  function get_data_penanggung_jawab($id_pengajuan=0){
+    $this->db->select('*');
+    $this->db->from('tb_list_pengajuan_surat_rekomendasi');
+    $this->db->join('tb_data_penanggung_jawab','tb_list_pengajuan_surat_rekomendasi.id_penanggung_jawab=tb_data_penanggung_jawab.id_penanggung_jawab');
+    $this->db->join('tb_jenis_biodata','tb_data_penanggung_jawab.id_biodata_penanggung_jawab=tb_jenis_biodata.id_jenis_biodata');
+    $this->db->where('tb_list_pengajuan_surat_rekomendasi.id_pengajuan', $id_pengajuan);
+    return $this->db->get()->result();
+  }
+  function get_data_berkas($id_pengajuan=0){
+    $this->db->select('*');
+    $this->db->from('tb_list_pengajuan_surat_rekomendasi');
+    $this->db->join('tb_data_berkas','tb_list_pengajuan_surat_rekomendasi.id_berkas=tb_data_berkas.id_berkas');
+    $this->db->join('tb_jenis_biodata','tb_data_berkas.id_biodata_berkas=tb_jenis_biodata.id_jenis_biodata');
+    $this->db->where('tb_list_pengajuan_surat_rekomendasi.id_pengajuan', $id_pengajuan);
+    return $this->db->get()->result();
+  }
 
 	function input_surat_rekomendasi()
 	{

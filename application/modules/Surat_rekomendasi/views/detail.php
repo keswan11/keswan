@@ -15,9 +15,21 @@
       $data_wilayah=$this->Model_surat_rekomendasi->get_wilayah();
       $get_id_wilayah=$this->Model_surat_rekomendasi->get_id_wilayah_pengajuan($id_pengajuan);
       $get_tempat_praktik=$this->Model_surat_rekomendasi->get_tempat_praktik($id_pengajuan);
+      $get_data_pj=$this->Model_surat_rekomendasi->get_data_penanggung_jawab($id_pengajuan);
+      $get_data_berkas=$this->Model_surat_rekomendasi->get_data_berkas($id_pengajuan);
+      ?>
+      <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-blue-active">
+              <h3 class="widget-user-username">Detail Tempat Praktik</h3>
+              <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
+            </div>
+            <div class="box-body">
+
+      <?php
       echo '
       <div class="form-group">
-        <h4 class="col-sm-3" style="margin-left:14px;">Wilayah Pengajuan</h4>';
+      <h4 class="col-sm-3" style="margin-left:14px;">Wilayah Pengajuan</h4>';
       foreach($data_wilayah as $dwilayah)
       {
         if($get_id_wilayah==$dwilayah->id_wilayah)
@@ -27,19 +39,25 @@
       }
       echo '</div>';
       ?>
-
-      <?php foreach($get_tempat_praktik as $dlist)
-      {
-          echo '
-          <div class="form-group">
-            <h4 class="col-sm-3" style="margin-left:14px;">'.$dlist->nama_jenis_biodata.'</h4>
-            '.$dlist->isi_biodata_tempat_praktik.'
-          </div>';
-      }?>
-      <?php
+      
+      <div class="form-group">
+      <?php foreach($get_tempat_praktik as $dtempat)
+      {?>
+          <?php if($dtempat->nama_jenis_biodata == "nama_lengkap"){ ?>
+            <h4 class="col-sm-3" style="margin-left:14px;">Nama Tempat Praktik/Pelayanan/Ambulatori/Klinik Hewan/RSH</h4>
+            <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dtempat->isi_biodata_tempat_praktik ?> <br><br></h4>
+          <?php  }else { ?>
+            <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dtempat->nama_jenis_biodata))?></h4>
+            <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dtempat->isi_biodata_tempat_praktik ?> </h4>
+          <?php  } ?>
+       <?php   }?>
+      </div>
+      </div>
+      </div>
+          <?php
       //$stat_pengajuan=$this->Model_surat_rekomendasi->get_status_rekomendasi($id_pengajuan);
       //$status=array("Diajukan","Terdisposisi","Terverifikasi Dokumen","Terverifikasi Lapangan","Diterbitkan");
-
+      
       /*echo '
       <div class="row">
       <div class="col-md-3">
@@ -61,6 +79,28 @@
       }
       echo '</select></div></div><br>';*/
        ?>
+       <div class="box box-widget widget-user">
+             <!-- Add the bg color to the header using any of the bg-* classes -->
+             <div class="widget-user-header bg-blue-active">
+               <h3 class="widget-user-username">Detail Penanggung Jawab</h3>
+               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
+             </div>
+             <div class="box-body">
+       
+              <div class="form-group">
+              <?php foreach($get_data_pj as $dpj)
+              {?>
+                  <?php if($dpj->nama_jenis_biodata == "nomor_ktp"){ ?>
+                    <h4 class="col-sm-3" style="margin-left:14px;"> Nomor KTP</h4>
+                    <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dpj->isi_biodata_penanggung_jawab ?></h4>
+                  <?php  }else { ?>
+                    <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dpj->nama_jenis_biodata))?></h4>
+                    <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dpj->isi_biodata_penanggung_jawab ?> </h4>
+                  <?php  } ?>
+                <?php   }?>
+              </div>
+            </div>
+       </div>
 
       <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -109,9 +149,24 @@
 
               }
               ?>
+              
+       <div class="box box-widget widget-user">
+             <!-- Add the bg color to the header using any of the bg-* classes -->
+             <div class="widget-user-header bg-blue-active">
+               <h3 class="widget-user-username">Berkas Pemohon</h3>
+               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
+             </div>
+             <div class="box-body">
+       
+              <div class="form-group">
+              <?php foreach($get_data_berkas as $dberkas)
+              {?>
+                    <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dberkas->nama_jenis_biodata))?></h4>
+                    <img src="<?php base_url().'images/'.$dberkas->isi_biodata_berkas?>" alt="">
+                <?php   }?>
+              </div>
             </div>
-              <!-- /.row -->
-    </div>
+       </div>
 
       <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -127,12 +182,12 @@
               <?php echo '<ol type="1">';
               foreach($data_kat_pesyaratan as $dkat)
               {
-                  
+                
                 echo '<li style="font-size:20px;"><text style="font-size:20px;">'.$dkat->nama_kategori_jenis_peralatan.'</text>';
                 echo '<ol style="font-size:16px;" type="a">';
                 foreach($this->Model_surat_rekomendasi->get_subkat_persyaratan($id_jenis_pengajuan,$dkat->id_kategori_jenis_peralatan) as $dsub)
                 {
-                    
+                  
                   if($dsub->id_sub_kategori_jenis_peralatan!=1)
                   {
                     echo '<li>'.$dsub->nama_sub_kategori_jenis_peralatan;
@@ -142,60 +197,60 @@
                       $data_keterangan=$this->Model_surat_rekomendasi->get_keterangan_peralatan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan);
                       foreach($data_keterangan as $dket)
                       {
-                          foreach($data_operator as $op)
+                        foreach($data_operator as $op)
+                        {
+                          foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
                           {
-                              foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
+                            $is_verifikasi=false;
+                            foreach ($data_operator as $op)
                             {
-                                 $is_verifikasi=false;
-                                foreach ($data_operator as $op)
-                                {
-                                     if (strpos($op->nama_role_operator,"Administrasi")!==false)
-                                     {
+                              if (strpos($op->nama_role_operator,"Administrasi")!==false)
+                              {
                                         if($data->id_status_pengajuan==3)
                                         {
                                             $is_verifikasi=false;
-                                        }
-                                        else
-                                        {
+                                          }
+                                          else
+                                          {
                                             $is_verifikasi=true;
+                                          }
                                         }
-                                     }
-                                     
-                                     if(strpos($op->nama_role_operator,"Lapangan")!==false)
-                                     {
-                                        if($data->id_status_pengajuan==4)
+                                        
+                                        if(strpos($op->nama_role_operator,"Lapangan")!==false)
+                                        {
+                                          if($data->id_status_pengajuan==4)
                                         {
                                             $is_verifikasi=false;
-                                        }
-                                        else
-                                        {
+                                          }
+                                          else
+                                          {
                                             $is_verifikasi=true;
-                                        } 
-                                     }
-                                    
-                                }
-                            }
-                               foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
-                                {
-                                   if(strpos($op->nama_role_operator,"Kepala")!==false|| ($data->id_status_pengajuan==6 || $data->id_status_pengajuan==5) || $is_verifikasi==false)
-                                  {
-                                    echo '<li>'.ucwords($syarat->nama_peralatan).
-                                    '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
-            
+                                          } 
+                                        }
+                                        
+                                      }
+                                    }
+                                    foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
+                                    {
+                                      if(strpos($op->nama_role_operator,"Kepala")!==false|| ($data->id_status_pengajuan==6 || $data->id_status_pengajuan==5) || $is_verifikasi==false)
+                                      {
+                                        echo '<li>'.ucwords($syarat->nama_peralatan).
+                                        '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
+                                        
                                     <div class="row">
                                     <div class="col-md-6">
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
                                     <textarea disabled style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_adm">'.$dket->ket_adm.'</textarea>
                                     </div>
-            
+                                    
                                     <div class="col-md-6">
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                     <textarea disabled style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                     <br>
                                     </div>
-            
+                                    
                                     </div>
-            
+                                    
                                     </li>';  
                                   }
                                   else
@@ -203,41 +258,41 @@
                                     echo '<li>'.ucwords($syarat->nama_peralatan).
                                     '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
                                     <div class="row">';
-            
+                                    
                                     if(strpos($op->nama_role_operator,"Administrasi")!==false)
                                     {
                                       echo '
-                                    <div class="col-md-6">
-                                    <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
-                                    <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_adm">'.$dket->ket_adm.'</textarea>
-                                    </div>';  
+                                      <div class="col-md-6">
+                                      <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
+                                      <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_adm">'.$dket->ket_adm.'</textarea>
+                                      </div>';  
                                     }
                                     
                                     if(strpos($op->nama_role_operator,"Lapangan")!==false)
                                     {
-                                        echo '<div class="col-md-6">
-                                    <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
-                                    <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
-                                    <br>
-                                    </div>';
+                                      echo '<div class="col-md-6">
+                                      <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
+                                      <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
+                                      <br>
+                                      </div>';
                                     }
                                     
-            
+                                    
                                     echo '
-            
+                                    
                                     </div>
-            
+                                    
                                     </li>';    
                                   } 
                                 }
                                 
+                                
+                              }
                               
+                            }
                           }
-                        
-                      }
-                     }
                     echo '</ul></li>';
-
+                    
                   }
                   else
                   {
@@ -246,62 +301,62 @@
                       $data_keterangan=$this->Model_surat_rekomendasi->get_keterangan_peralatan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan);
                       foreach($data_keterangan as $dket)
                       {
-                          foreach($data_operator as $op)
-                          {
+                        foreach($data_operator as $op)
+                        {
                               foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
-                            {
-                                 $is_verifikasi=false;
+                              {
+                                $is_verifikasi=false;
                                 foreach ($data_operator as $op)
                                 {
-                                     if (strpos($op->nama_role_operator,"Administrasi")!==false)
-                                     {
-                                        if($data->id_status_pengajuan==3)
-                                        {
-                                            $is_verifikasi=false;
-                                        }
-                                        else
-                                        {
-                                            $is_verifikasi=true;
-                                        }
-                                     }
-                                     
-                                     if(strpos($op->nama_role_operator,"Lapangan")!==false)
-                                     {
+                                  if (strpos($op->nama_role_operator,"Administrasi")!==false)
+                                  {
+                                    if($data->id_status_pengajuan==3)
+                                    {
+                                      $is_verifikasi=false;
+                                    }
+                                    else
+                                    {
+                                      $is_verifikasi=true;
+                                    }
+                                  }
+                                  
+                                  if(strpos($op->nama_role_operator,"Lapangan")!==false)
+                                  {
                                         if($data->id_status_pengajuan==4)
                                         {
                                             $is_verifikasi=false;
                                         }
                                         else
                                         {
-                                            $is_verifikasi=true;
+                                          $is_verifikasi=true;
                                         } 
-                                     }
-                                    
-                                }
-                            }
-                              
-                              
-                              foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
-                                {
-                                  if(strpos($op->nama_role_operator,"Kepala")!==false|| ($data->id_status_pengajuan==6 || $data->id_status_pengajuan==5) || $is_verifikasi==false)
+                                      }
+                                      
+                                    }
+                                  }
+                                  
+                                  
+                                  foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
+                                  {
+                                    if(strpos($op->nama_role_operator,"Kepala")!==false|| ($data->id_status_pengajuan==6 || $data->id_status_pengajuan==5) || $is_verifikasi==false)
                               {
                                 echo '<li>'.ucwords($syarat->nama_peralatan).
                                 '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
-        
+                                
                                 <div class="row">
                                 <div class="col-md-6">
                                 <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
                                 <textarea disabled style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_adm">'.$dket->ket_adm.'</textarea>
                                 </div>
-        
+                                
                                 <div class="col-md-6">
                                 <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                 <textarea disabled style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                 <br>
                                 </div>
-        
+                                
                                 </div>
-        
+                                
                                 </li>';  
                               }
                               else
@@ -311,55 +366,57 @@
                                 
                                  if(strpos($op->nama_role_operator,"Administrasi")!==false)
                                     {
-                                        echo ' <div class="col-md-6">
-                                    <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
+                                      echo ' <div class="col-md-6">
+                                      <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
                                     <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_adm">'.$dket->ket_adm.'</textarea>
                                     </div>';
-                                    }
-                                    
-                                    if(strpos($op->nama_role_operator,"Lapangan")!==false)
-                                    {
-                                       echo '<div class="col-md-6">
+                                  }
+                                  
+                                  if(strpos($op->nama_role_operator,"Lapangan")!==false)
+                                  {
+                                    echo '<div class="col-md-6">
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                     <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                     <br>
                                     </div>'; 
-                                    }
-                                    
-                                    echo ' </div>
-            
-                                    </li>'; 
-                                  }  
-                                }
+                                  }
+                                  
+                                  echo ' </div>
+                                  
+                                  </li>'; 
+                                }  
+                              }
                               
+                            }
+                            
                           }
-                        
+                        }
                       }
                     }
+                    echo '</ol></li></br>';
                   }
-                }
-                echo '</ol></li></br>';
-              }
-              echo '</ol>';?>
+                  echo '</ol>';?>
             </div>
               <!-- /.row -->
+    </div>
+    </div>
     </div>
           <!-- /.widget-user -->
 
     <div class="box-footer">
      <?php
      foreach($data_operator as $op)
-                          {
-                              if(strpos($op->nama_role_operator,"Kepala")!==false)
-                              {
-                                  
-                              }
-                              else
-                              {
-                                  foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
+     {
+       if(strpos($op->nama_role_operator,"Kepala")!==false)
+       {
+         
+      }
+      else
+      {
+        foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $data)
         {
-            if($data->id_status_pengajuan!=6 && $data->id_status_pengajuan!=5)
-            {
+          if($data->id_status_pengajuan!=6 && $data->id_status_pengajuan!=5)
+          {
                  if($is_verifikasi==true)
                 {
                   $onclick_submit="return confirm('Anda yakin ingin menyimpan data ini ?')";
