@@ -289,14 +289,15 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $sql="SELECT * FROM tb_jenis_biodata";
     return $this->db->query($sql)->result();
   }
-  // function get_tempat_praktik($id_pengajuan=0){
-  //   $this->db->select("*");
-  //   $this->db->from("tb_data_tempat_praktik");
-  //   $this->db->join("tb_list_pengajuan_surat_rekomendasi","tb_list_pengajuan_surat_rekomendasi.id_tempat_praktik=tb_data_tempat_praktik.id_tempat_praktik");
-  //   $this->db->join("tb_jenis_biodata","tb_data_tempat_praktik.id_biodata_tempat_praktik=tb_jenis_biodata.id_jenis_biodata");
-  //   $this->db->where("tb_list_pengajuan_surat_rekomendasi.id_pengajuan",$id_pengajuan);
-  //   $query = $this->db->get();
-  // } gagal
+  function get_tempat_praktik($id_pengajuan=0){
+    $this->db->select('*');
+    $this->db->from('tb_list_pengajuan_surat_rekomendasi');
+    $this->db->join('tb_data_tempat_praktik','tb_list_pengajuan_surat_rekomendasi.id_tempat_praktik=tb_data_tempat_praktik.id_tempat_praktik');
+    $this->db->join('tb_jenis_biodata','tb_data_tempat_praktik.id_biodata_tempat_praktik=tb_jenis_biodata.id_jenis_biodata');
+    $this->db->where('tb_list_pengajuan_surat_rekomendasi.id_pengajuan', $id_pengajuan);
+    return $this->db->get()->result();
+
+  } 
 
 	function input_surat_rekomendasi()
 	{
