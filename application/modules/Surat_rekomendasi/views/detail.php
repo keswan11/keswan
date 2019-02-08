@@ -14,6 +14,7 @@
       <?php
       $data_wilayah=$this->Model_surat_rekomendasi->get_wilayah();
       $get_id_wilayah=$this->Model_surat_rekomendasi->get_id_wilayah_pengajuan($id_pengajuan);
+      $get_tempat_praktik=$this->Model_surat_rekomendasi->get_tempat_praktik($id_pengajuan);
       echo '
       <div class="form-group">
         <h4 class="col-sm-3" style="margin-left:14px;">Wilayah Pengajuan</h4>';
@@ -26,19 +27,6 @@
       }
       echo '</div>';
       ?>
-
-      <?php foreach($data_list_surat_rekomendasi as $dlist)
-      {
-        if($dlist->detail_wilayah!=NULL || $dlist->detail_wilayah!='')
-        {
-          $detail_wilayah='<h4 class="col-sm-6" style="margin-left:14px;"> : '.$dlist->detail_wilayah.'</h4>';
-          echo '
-          <div class="form-group">
-            <h4 class="col-sm-3" style="margin-left:14px;">Detail Wilayah</h4>
-            '.$detail_wilayah.'
-          </div>';
-        }
-      }?>
       <?php
       //$stat_pengajuan=$this->Model_surat_rekomendasi->get_status_rekomendasi($id_pengajuan);
       //$status=array("Diajukan","Terdisposisi","Terverifikasi Dokumen","Terverifikasi Lapangan","Diterbitkan");
