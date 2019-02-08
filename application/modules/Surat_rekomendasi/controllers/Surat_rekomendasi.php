@@ -5,7 +5,8 @@ class Surat_rekomendasi extends CI_Controller {
 	function __construct()
   	{
     parent::__construct();
-    $this->load->library('MyPHPMailer');
+	$this->load->library('MyPHPMailer');
+	$this->load->library('upload');
     $this->load->model('Model_surat_rekomendasi');
     $this->load->model('page_operator/Page_operator_model');
     $this->load->model('surat_izin/Model_surat_izin');

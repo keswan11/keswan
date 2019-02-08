@@ -14,6 +14,29 @@ class Model_surat_rekomendasi extends CI_Model
     $sql.=" ORDER BY a.id_role_wilayah ASC";
     return $this->db->query($sql)->result();
   }
+  function get_provinsi($id_provinsi=0)
+  {
+    $sql="SELECT * FROM tb_provinsi a
+    INNER JOIN tb_role_wilayah b ON a.id_role_wilayah=b.id_role_wilayah";
+    if($id_provinsi!=0)
+    {
+      $sql.=" AND a.id_provinsi=$id_provinsi";
+    }
+    $sql.=" ORDER BY a.nama ASC";
+    return $this->db->query($sql)->result();
+  }
+  
+  function get_kabupaten($id_kabupaten=0)
+  {
+    $sql="SELECT * FROM tb_kabupaten a
+    INNER JOIN tb_role_wilayah b ON a.id_role_wilayah=b.id_role_wilayah";
+    if($id_kabupaten!=0)
+    {
+      $sql.=" AND a.id_kabupaten=$id_kabupaten";
+    }
+    $sql.=" ORDER BY a.nama ASC";
+    return $this->db->query($sql)->result();
+  }
   
   function update_status()
   {
@@ -249,22 +272,115 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     return $this->db->query($sql)->result();
   }
 
+  function get_biodata_pemohon(){
+    $sql="SELECT * FROM tb_jenis_biodata";
+    return $this->db->query($sql)->result();
+  }
+
 
 	function input_surat_rekomendasi()
 	{
+    //mengisi tb_data_tempat_praktik
+    $nama_tempat_praktik=$this->input->post('nama_tempat_praktik');
+    $alamat_tempat_praktik=$this->input->post('alamat_tempat_praktik');
+    $provinsi_tempat_praktik=$this->input->post('provinsi_tempat_praktik');
+    $kabupaten_tempat_praktik=$this->input->post('kabupaten_tempat_praktik');
+    $telp_hp_tempat_praktik=$this->input->post('telp_hp_tempat_praktik');
+    $fax_tempat_praktik=$this->input->post('fax_tempat_praktik');
+    $email_tempat_praktik=$this->input->post('email_tempat_praktik');
+    
+    $this->db->select('MAX(id_tempat_praktik) AS id_terakhir');
+    $this->db->from('tb_data_tempat_praktik');
+    $query_terakhir=$this->db->get();
+    $terakhir=$query_terakhir->row();
+    $idRow=$terakhir->id_terakhir;
+    $idRow_tempat=$idRow+1;
+
+    $sql="INSERT INTO tb_data_tempat_praktik (id_tempat_praktik,id_biodata_tempat_praktik,isi_biodata_tempat_praktik) VALUES 
+    ('".$idRow_tempat."','1','".$nama_tempat_praktik."'),
+    ('".$idRow_tempat."','2','".$alamat_tempat_praktik."'),
+    ('".$idRow_tempat."','40','".$provinsi_tempat_praktik."'),
+    ('".$idRow_tempat."','41','".$kabupaten_tempat_praktik."'),
+    ('".$idRow_tempat."','3','".$telp_hp_tempat_praktik."'),
+    ('".$idRow_tempat."','45','".$fax_tempat_praktik."'),
+    ('".$idRow_tempat."','4','".$email_tempat_praktik."')";
+    
+    $this->db->query($sql);
+
+    //MENGISI DATA tb_data_penanggung_jawab
+    $nomor_ktp_pj=$this->input->post('nomor_ktp_pj');
+    $nama_lengkap_pj=$this->input->post('nama_lengkap_pj');
+    $alamat_pj=$this->input->post('alamat_pj');
+    $telp_hp_pj=$this->input->post('telp_hp_pj');
+    $email_pj=$this->input->post('email_pj');
+    
+    $this->db->select('MAX(id_penanggung_jawab) AS id_terakhir');
+    $this->db->from('tb_data_penanggung_jawab');
+    $query_terakhir=$this->db->get();
+    $terakhir=$query_terakhir->row();
+    $idRow=$terakhir->id_terakhir;
+    $idRow_pj=$idRow+1;
+
+    $sql="INSERT INTO tb_data_penanggung_jawab (id_penanggung_jawab,id_biodata_penanggung_jawab,isi_biodata_penanggung_jawab) VALUES
+    ('".$idRow_pj."','12','".$nomor_ktp_pj."'),
+    ('".$idRow_pj."','1','".$nama_lengkap_pj."'),
+    ('".$idRow_pj."','2','".$alamat_pj."'),
+    ('".$idRow_pj."','3','".$telp_hp_pj."'),
+    ('".$idRow_pj."','4','".$email_pj."')";
+    $this->db->query($sql);
+
+    //MENGISI DATA tb_data_berkas
+    $file_surat=$_FILES['surat_permohonan']['name'];
+    $file_ktp=$_FILES['scan_ktp']['name'];
+    $file_bukti=$_FILES['bukti_pembayaran']['name'];
+
+    $config['upload_path']          = '../images';
+    $config['allowed_types']        = 'gif|jpg|png|jpeg';
+    $config['encrypt_name']         = TRUE;
+    $config['max_size']             = '1024';
+    
+    $this->load->library('upload', $config);
+
+    $this->upload->do_upload('surat_permohonan');
+    $file = $this->upload->data();
+    $file_surat = $file['file_name'];
+
+    $this->upload->do_upload('scan_ktp');
+    $file = $this->upload->data();
+    $file_ktp = $file['file_name'];
+    
+    $this->upload->do_upload('bukti_pembayaran');
+    $file = $this->upload->data();
+    $file_bukti = $file['file_name'];
+
+    $this->db->select('MAX(id_berkas) AS id_terakhir');
+    $this->db->from('tb_data_berkas');
+    $query_terakhir=$this->db->get();
+    $terakhir=$query_terakhir->row();
+    $idRow=$terakhir->id_terakhir;
+    $idRow_berkas=$idRow+1;
+
+    $sql="INSERT INTO tb_data_berkas (id_berkas,id_biodata_berkas,isi_biodata_berkas) VALUES 
+    ('".$idRow_berkas."','36','".$file_surat."'),
+    ('".$idRow_berkas."','17','".$file_ktp."'),
+    ('".$idRow_berkas."','35','".$file_bukti."')
+    ";
+    $this->db->query($sql);
+
 		$id_jenis_pengajuan=$this->input->post('id_jenis_pengajuan');
 		$id_member=$this->session->userdata('id_member');
 		$id_wilayah=$this->input->post('id_wilayah');
 		$id_status_pengajuan=1;
     $detail_wilayah=$this->input->post('detail_wilayah');
-    //$id_jenis_peralatan=$this->get_keterangan_persyaratan($id_jenis_peralatan); //tambahan
 		$dpengajuan=$this->get_persyaratan_by_jenis_pengajuan($id_jenis_pengajuan);
 
 		$data_list_surat_rekomendasi=array(
-			"id_member"=>$id_member,
+      "id_member"=>$id_member,
+      "id_penanggung_jawab"=>$idRow_pj,
 			"id_jenis_pengajuan"=>$id_jenis_pengajuan,
 			"id_wilayah"=>$id_wilayah,
-      "detail_wilayah"=>$detail_wilayah,
+      "id_tempat_praktik"=>$idRow_tempat,
+      "id_berkas"=>$idRow_berkas,
 			"id_status_pengajuan"=>$id_status_pengajuan
 		);
 		$this->db->insert("tb_list_pengajuan_surat_rekomendasi",$data_list_surat_rekomendasi);
