@@ -149,7 +149,20 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
       return $data->jumlah_jenis_peralatan;
     }
   }
-  
+  function status_peralatan($id_pengajuan)
+  {
+    $this->db->select('*');
+    $this->db->from('tb_data_pengajuan_surat_rekomendasi');
+    $this->db->where('id_pengajuan' , $id_pengajuan);
+   // $this->db->join('tb_jenis_peralatan','tb_jenis_peralatan.id_jenis_peralatan = tb_data_pengajuan_surat_rekomendasi.id_jenis_peralatan');
+   // $this->db->join('tb_kategori_jenis_peralatan','tb_kategori_jenis_peralatan.id_kategori_jenis_peralatan = tb_jenis_peralatan.id_kategori_peralatan');
+    //$this->db->join('tb_sub_kategori_jenis_peralatan','tb_sub_kategori_jenis_peralatan.id_sub_kategori_jenis_peralatan = tb_jenis_peralatan.id_sub_kategori_peralatan');
+    $this->db->join('tb_status_peralatan','tb_status_peralatan.id_status_peralatan = tb_data_pengajuan_surat_rekomendasi.id_status_peralatan');
+   /*$this->db->join('tb_list_pengajuan_surat_rekomendasi','tb_list_pengajuan_surat_rekomendasi.id_pengajuan = tb_data_pengajuan_surat_rekomendasi.id_pengajuan');*/
+    /*$this->db->join('tb_jenis_pengajuan','tb_jenis_pengajuan.id_jenis_pengajuan = tb_list_pengajuan_surat_rekomendasi.id_jenis_pengajuan');*/
+    $data = $this->db->get();
+    return $data->result();
+  }
   function get_list_pengajuan_rekomendasi($id_pengajuan="")
   {
     if($id_pengajuan!="")
@@ -359,6 +372,6 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
           </script>";
 	}
 
-  
+   
 
 }
