@@ -279,6 +279,7 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
   {
     $sql="SELECT * FROM tb_data_pengajuan_surat_rekomendasi a
     INNER JOIN tb_list_pengajuan_surat_rekomendasi b ON a.id_pengajuan=b.id_pengajuan
+    INNER JOIN tb_status_peralatan c ON a.id_status_peralatan=c.id_status_peralatan
     AND a.id_pengajuan=$id_pengajuan
     AND a.id_jenis_peralatan=$id_jenis_peralatan
     AND b.id_jenis_pengajuan=$id_jenis_pengajuan";
@@ -476,14 +477,15 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
       $id=$dpengajuan->id_jenis_peralatan;
       $ket_adm=$this->input->post($id.'_adm');
       $ket_lap=$this->input->post($id.'_lap');
+      $id_kesesuaian=$this->input->post($id.'_sesuai');
       if($id_status_pengajuan==3)
       {
-        $sql="UPDATE tb_data_pengajuan_surat_rekomendasi SET ket_adm='$ket_adm'
+        $sql="UPDATE tb_data_pengajuan_surat_rekomendasi SET ket_adm='$ket_adm', id_status_kesesuaian='$id_kesesuaian'
         WHERE id_pengajuan=$id_pengajuan AND id_jenis_peralatan=$id";
       }
       else if ($id_status_pengajuan==4)
       {
-        $sql="UPDATE tb_data_pengajuan_surat_rekomendasi SET ket_lap='$ket_lap'
+        $sql="UPDATE tb_data_pengajuan_surat_rekomendasi SET ket_lap='$ket_lap', id_status_kesesuaian='$id_kesesuaian'
         WHERE id_pengajuan=$id_pengajuan AND id_jenis_peralatan=$id";
       }
   	  $this->db->query($sql);

@@ -236,7 +236,8 @@
                                       {
                                         echo '<li>'.ucwords($syarat->nama_peralatan).
                                         '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
-                                        
+                                        <br>
+                                   <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
                                     <div class="row">
                                     <div class="col-md-6">
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
@@ -257,6 +258,8 @@
                                   {
                                     echo '<li>'.ucwords($syarat->nama_peralatan).
                                     '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
+                                    <br>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
                                     <div class="row">';
                                     
                                     if(strpos($op->nama_role_operator,"Administrasi")!==false)
@@ -274,7 +277,9 @@
                                       <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                       <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                       <br>
-                                      </div>';
+                                      </div>
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Ada</label>
+							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Ada</label>';
                                     }
                                     
                                     
@@ -342,7 +347,8 @@
                               {
                                 echo '<li>'.ucwords($syarat->nama_peralatan).
                                 '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
-                                
+                                <br>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
                                 <div class="row">
                                 <div class="col-md-6">
                                 <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
@@ -362,7 +368,10 @@
                               else
                               {
                                 echo '<li>'.ucwords($syarat->nama_peralatan).
-                                '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b> <div class="row">';
+                                '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b> 
+                                <br>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
+                                <div class="row">';
                                 
                                  if(strpos($op->nama_role_operator,"Administrasi")!==false)
                                     {
@@ -378,7 +387,9 @@
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                     <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                     <br>
-                                    </div>'; 
+                                    </div>
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Ada</label>
+							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Ada</label>'; 
                                   }
                                   
                                   echo ' </div>

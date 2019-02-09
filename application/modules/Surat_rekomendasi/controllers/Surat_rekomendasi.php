@@ -184,6 +184,8 @@ class Surat_rekomendasi extends CI_Controller {
 			$data['data_pengajuan']=$this->Model_surat_rekomendasi->get_jenis_pengajuan($id_jenis_pengajuan);
 			$data['id_jenis_pengajuan']=$id_jenis_pengajuan;
 			$data['data_kat_pesyaratan']=$this->Model_surat_rekomendasi->get_kat_persyaratan($id_jenis_pengajuan);
+			$data['provinsi']= $this->Model_surat_rekomendasi->get_provinsi($this->uri->segment(5));
+			$data['kabupaten']= $this->Model_surat_rekomendasi->get_kabupaten($this->uri->segment(3));
 			$this->template->load('templates/template','input.php',$data);
 		}
 		else
@@ -364,6 +366,44 @@ class Surat_rekomendasi extends CI_Controller {
                 window.location.href='".$return_page."';
                 </script>";
 			}
-  	}
+	  }
+	  //dropdown select
+	  function list_kabupaten(){
+		$id_provinsi = $this->input->post('id_provinsi');
+		$data_kabupaten = $this->Model_surat_rekomendasi->view_kabupaten($id_provinsi);
+		// foreach($kota as $data){
+		// 	$lists .= "<option value='".$data->id."'>".$data->nama."</option>"; // Tambahkan tag option ke variabel $lists
+		//   }
+		// if($this->session->userdata('id_jenis_warga') != 2)
+		// {
+			//echo'<option selected>Pilih Kota/Kabupaten</option>';
+			foreach($data_kabupaten as $dkabupaten)
+			{
+			//   if($dkabupaten->id_kabupaten!="1")
+			//   {
+			// 	  if($dkabupaten->id_role_wilayah=="3")
+			// 	  {
+			// 		$nama_kabupaten=strtoupper($dkabupaten->nama);
+			// 	  }
+			// 	  else {
+			// 		$nama_kabupaten=strtoupper($dkabupaten->nama);
+			// 	  }
+				  //echo'<option value="'.$dkabupaten->nama.'">'.$nama_kabupaten.'</option>';  
+				  $lists .= "<option value='".$dkabupaten->nama."'>".$nama_kabupaten."</option>";  
+			  }
+		// 	}
+		// }
+		// else
+		// {
+		// 	  echo'<option value="1">PUSAT</option>';
+		// 	  $lists .= "<option value='1'></option>";
+		// }
+		  $callback = array('list_kota'=>$lists); // Masukan variabel lists tadi ke dalam array $callback dengan index array : list_kota
+		  echo json_encode($callback); // konversi varibael $callback menjadi JSON   
+	  //}
+	//   function plih_provinsi(){
+	// 	$data['provinsi']= $this->Model_surat_rekomendasi->get_provinsi($this->uri->segment(3));
+	// 	$this->template->load('templates/template','input.php',$data);
+	  }
 
 }
