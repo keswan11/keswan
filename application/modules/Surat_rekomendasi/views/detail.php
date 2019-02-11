@@ -17,6 +17,7 @@
       $get_tempat_praktik=$this->Model_surat_rekomendasi->get_tempat_praktik($id_pengajuan);
       $get_data_pj=$this->Model_surat_rekomendasi->get_data_penanggung_jawab($id_pengajuan);
       $get_data_berkas=$this->Model_surat_rekomendasi->get_data_berkas($id_pengajuan);
+      $data_member=$this->Model_surat_rekomendasi->get_member_by_id($id_pengajuan);
       ?>
       <div class="box box-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
@@ -45,10 +46,10 @@
       {?>
           <?php if($dtempat->nama_jenis_biodata == "nama_lengkap"){ ?>
             <h4 class="col-sm-3" style="margin-left:14px;">Nama Tempat Praktik/Pelayanan/Ambulatori/Klinik Hewan/RSH</h4>
-            <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dtempat->isi_biodata_tempat_praktik ?> <br><br></h4>
+            <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> <br><br></h4>
           <?php  }else { ?>
             <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dtempat->nama_jenis_biodata))?></h4>
-            <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dtempat->isi_biodata_tempat_praktik ?> </h4>
+            <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> </h4>
           <?php  } ?>
        <?php   }?>
       </div>
@@ -92,12 +93,12 @@
               {?>
                   <?php if($dpj->nama_jenis_biodata == "nomor_ktp"){ ?>
                     <h4 class="col-sm-3" style="margin-left:14px;"> Nomor KTP</h4>
-                    <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dpj->isi_biodata_penanggung_jawab ?></h4>
+                    <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dpj->isi_biodata_penanggung_jawab ?></h4>
                   <?php  }else { ?>
                     <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dpj->nama_jenis_biodata))?></h4>
-                    <h4 class="col-sm-6" style="margin-left:14px;"> <?php echo $dpj->isi_biodata_penanggung_jawab ?> </h4>
+                    <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dpj->isi_biodata_penanggung_jawab ?> </h4>
                   <?php  } ?>
-                <?php   }?>
+              <?php   }?>
               </div>
             </div>
        </div>
@@ -109,47 +110,17 @@
               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
             </div>
             <div class="box-body">
-
-              <?php
-              $data_member=$this->Model_surat_rekomendasi->get_member_by_id($id_member);
-              if(count($data_member!=0))
-              {
-                echo '<style="margin-left:30px;" div class="row">';
-                $i=1;
-                foreach($data_member as $dmember)
-                {
-                  if($i==1 || $i==8)
-                  {
-                    echo '<div class="col-md-6"><table width="100%">';
-                    echo '<tr><td><b>'.ucwords(str_replace("_"," ",$dmember->nama_jenis_biodata)).'<b></td>
-                     <td><b>:</b> '.$dmember->isi_biodata_member.'</td></tr>';
-                  }
-                  else {
-                    if(strpos($dmember->isi_biodata_member,".jpg")!==false)
-                    {
-                      echo '<tr><td><b>'.ucwords(str_replace("_"," ",$dmember->nama_jenis_biodata)).'<b></td>
-                       <td><b>:</b> <a target="blank" href="'.base_url().'images/'.$dmember->isi_biodata_member.'"><img width="50px" height="auto" src="'.base_url().'images/'.$dmember->isi_biodata_member.'"></a> </td></tr>';
-
-                    }
-                    else
-                    {
-                      echo '<tr><td><b>'.ucwords(str_replace("_"," ",$dmember->nama_jenis_biodata)).'<b></td>
-                       <td><b>:</b> '.$dmember->isi_biodata_member.'</td></tr>';
-                    }
-                  }
-
-                  if($i==7)
-                  {
-                    echo '</table></div>';
-                  }
-
-                   $i++;
-                }
-                echo '</div></table></div>';
-
-              }
-              ?>
-              
+              <?php foreach($data_member as $dmember)
+              {?>
+                  <?php if($dmember->nama_jenis_biodata == "scan_ktp"){ ?>
+                    <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dmember->nama_jenis_biodata))?></h4>
+                    <img width="300px" height="auto" style="margin-left:28px;" src="<?php echo base_url()."images/".$dmember->isi_biodata_member;?>">
+                  <?php }else{ ?>
+                    <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dmember->nama_jenis_biodata))?></h4>
+                    <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dmember->isi_biodata_member ?> </h4>
+                  <?php } ?>
+              <?php   }?>
+              </div>
        <div class="box box-widget widget-user">
              <!-- Add the bg color to the header using any of the bg-* classes -->
              <div class="widget-user-header bg-blue-active">
@@ -161,8 +132,10 @@
               <div class="form-group">
               <?php foreach($get_data_berkas as $dberkas)
               {?>
-                    <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dberkas->nama_jenis_biodata))?></h4>
-                    <img src="<?php base_url().'images/'.$dberkas->isi_biodata_berkas?>" alt="">
+                  <div class="col-md-4">
+                    <h3 class="title" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dberkas->nama_jenis_biodata))?></h3>
+                    <img width="300px" height="auto" src="<?php echo base_url()."images/".$dberkas->isi_biodata_berkas;?>">
+                  </div>
                 <?php   }?>
               </div>
             </div>

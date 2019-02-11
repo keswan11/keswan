@@ -57,10 +57,16 @@ class Model_surat_rekomendasi extends CI_Model
   function get_list_surat_rekomendasi()
   {
       $id_jenis_pengajuan=$this->uri->segment(3);
-    $sql="SELECT tb_jenis_pengajuan.*, tb_list_member.*,tb_list_pengajuan_surat_rekomendasi.tgl_dibuat as tgl, tb_list_pengajuan_surat_rekomendasi.id_pengajuan,tb_list_pengajuan_surat_rekomendasi.id_status_pengajuan as st_pengajuan, tb_status_pengajuan.*,tb_wilayah.*,tb_data_member.* FROM tb_list_pengajuan_surat_rekomendasi inner join tb_jenis_pengajuan ON tb_list_pengajuan_surat_rekomendasi.id_jenis_pengajuan=tb_jenis_pengajuan.id_jenis_pengajuan inner join tb_list_member ON tb_list_pengajuan_surat_rekomendasi.id_member=tb_list_member.id_member inner join tb_status_pengajuan ON tb_list_pengajuan_surat_rekomendasi.id_status_pengajuan=tb_status_pengajuan.id_status_pengajuan inner join tb_wilayah ON tb_list_pengajuan_surat_rekomendasi.id_wilayah=tb_wilayah.id_wilayah inner join tb_data_member ON tb_list_pengajuan_surat_rekomendasi.id_member=tb_data_member.id_member
-    WHERE tb_list_pengajuan_surat_rekomendasi.id_member=".$this->session->userdata('id_member').
-    " AND tb_list_member.id_member=".$this->session->userdata('id_member').
-    " AND (tb_data_member.id_biodata_member=10) AND tb_list_pengajuan_surat_rekomendasi.id_jenis_pengajuan=$id_jenis_pengajuan";
+    $sql="SELECT tb_jenis_pengajuan.*, tb_list_member.*,tb_list_pengajuan_surat_rekomendasi.tgl_dibuat as tgl, 
+    tb_list_pengajuan_surat_rekomendasi.id_pengajuan,tb_list_pengajuan_surat_rekomendasi.id_status_pengajuan as st_pengajuan, 
+    tb_status_pengajuan.*,tb_wilayah.*,tb_data_member.* 
+    FROM tb_list_pengajuan_surat_rekomendasi 
+    inner join tb_jenis_pengajuan ON tb_list_pengajuan_surat_rekomendasi.id_jenis_pengajuan=tb_jenis_pengajuan.id_jenis_pengajuan 
+    inner join tb_list_member ON tb_list_pengajuan_surat_rekomendasi.id_member=tb_list_member.id_member 
+    inner join tb_status_pengajuan ON tb_list_pengajuan_surat_rekomendasi.id_status_pengajuan=tb_status_pengajuan.id_status_pengajuan 
+    inner join tb_wilayah ON tb_list_pengajuan_surat_rekomendasi.id_wilayah=tb_wilayah.id_wilayah 
+    inner join tb_data_member ON tb_list_pengajuan_surat_rekomendasi.id_member=tb_data_member.id_member
+    WHERE tb_list_pengajuan_surat_rekomendasi.id_member=".$this->session->userdata('id_member')." AND tb_list_member.id_member=".$this->session->userdata('id_member')." AND (tb_data_member.id_biodata_member=3) AND tb_list_pengajuan_surat_rekomendasi.id_jenis_pengajuan=$id_jenis_pengajuan";
     $result_query=$this->db->query($sql);
     return $result_query->result();
 
@@ -200,12 +206,14 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     return $query->result();
   }
 
-  function get_member_by_id($id_member=0)
+  function get_member_by_id($id_pengajuan=0)
   {
-    $sql="SELECT a.*,b.* FROM tb_data_member a
-    INNER JOIN tb_jenis_biodata b ON a.id_biodata_member=b.id_jenis_biodata AND a.id_member=$id_member
-    ORDER BY b.id_jenis_biodata ASC";
-    return $this->db->query($sql)->result();
+    $this->db->select('*');
+    $this->db->from('tb_list_pengajuan_surat_rekomendasi');
+    $this->db->join('tb_data_member','tb_list_pengajuan_surat_rekomendasi.id_member=tb_data_member.id_member');
+    $this->db->join('tb_jenis_biodata','tb_data_member.id_biodata_member=tb_jenis_biodata.id_jenis_biodata');
+    $this->db->where('tb_list_pengajuan_surat_rekomendasi.id_pengajuan', $id_pengajuan);
+    return $this->db->get()->result();
   }
 
   function get_member_by_pengajuan($id_pengajuan)

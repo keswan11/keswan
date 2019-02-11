@@ -30,7 +30,7 @@
 				foreach ($biodata as $bio) {
 					$nama = ucwords(str_replace("_", " ", $bio->nama_jenis_biodata));
 					if ($nama == "Nomor Ktp") {
-						$nama = "Nomor KTP";
+						$nama = "Nomor KTP/Identitas";
 					} else if ($nama == "Nomor Npwp") {
 						$nama = "Nomor NPWP";
 					} else if ($nama == "Scan Ktp") {

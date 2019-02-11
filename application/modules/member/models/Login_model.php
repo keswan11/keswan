@@ -42,14 +42,14 @@ class Login_model extends CI_Model {
 
 	function fullname($username)
 	{
-		$query = "SELECT * FROM tb_list_member, tb_data_member where tb_list_member.id_member = tb_data_member.id_member AND tb_list_member.username = '$username' AND tb_data_member.id_biodata_member = '1'";
+		$query = "SELECT * FROM tb_list_member, tb_data_member where tb_list_member.id_member = tb_data_member.id_member AND tb_list_member.username = '$username' AND tb_data_member.id_biodata_member = '2'";
 
 		return $this->db->query($query);
 	}
 	
 	function penanggung_jawab($username)
 	{
-		$query = "SELECT * FROM tb_list_member, tb_data_member where tb_list_member.id_member = tb_data_member.id_member AND tb_list_member.username = '$username' AND tb_data_member.id_biodata_member = '10'";
+		$query = "SELECT * FROM tb_list_member, tb_data_member where tb_list_member.id_member = tb_data_member.id_member AND tb_list_member.username = '$username' AND tb_data_member.id_biodata_member = '3'";
 
 		return $this->db->query($query);
 	}
