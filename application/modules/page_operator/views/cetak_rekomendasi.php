@@ -65,9 +65,9 @@
     <tr>
       <td width="10%">Nama Lengkap</td>
       <?php 
-      $q1 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 1";
+      $q1 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 2";
       $query1 = $this->db->query($q1)->row();
-      $qn = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 10";
+      $qn = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 3";
       $qnl = $this->db->query($qn)->row();
       $lm = "SELECT * FROM tb_list_member WHERE id_member = $r->id_member";
         $list = $this->db->query($lm)->row();?>
@@ -94,7 +94,7 @@
     </tr>
     <tr>
       <td>Alamat</td>  <?php 
-      $q2 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 2";
+      $q2 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 7";
       $query2 = $this->db->query($q2)->row();
       ?>
      <td> : <?php if(isset($query2))
@@ -110,7 +110,7 @@
     </tr>
     <tr>
       <td>Tlp/Hp.</td>  <?php 
-      $q3 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 3";
+      $q3 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 10";
       $query3 = $this->db->query($q3)->row();
       ?>
       <td> : <?php if(isset($query3))
@@ -126,10 +126,10 @@
     </tr>
     <tr>
       <td>Tempat/Tanggal Lahir</td>  <?php 
-      $q4 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 5";
+      $q4 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 4";
       $query4 = $this->db->query($q4)->row();
       ?><?php 
-      $q5 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 6";
+      $q5 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 5";
       $query5 = $this->db->query($q5)->row();
       ?>
       <td> : <?php if(isset($query4))
@@ -157,7 +157,7 @@
     <tr>
       <td>Jenis Kelamin</td>
       <?php 
-      $q7 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 7";
+      $q7 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 6";
       $query7 = $this->db->query($q7)->row();
       ?>
      <td> : <?php if(isset($query7))
@@ -174,7 +174,7 @@
     <tr>
       <td>Pendidikan</td>
       <?php 
-      $q8 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 8";
+      $q8 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 13";
       $query8 = $this->db->query($q8)->row();
       ?>
       <td> : <?php if(isset($query8))
@@ -191,7 +191,7 @@
     <tr>
       <td>Tahun Lulus</td>
       <?php 
-      $q9 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 9";
+      $q9 = "SELECT * FROM tb_data_member WHERE id_member = $r->id_member AND id_biodata_member = 14";
       $query9 = $this->db->query($q9)->row();
       ?>
       <td> : <?php if(isset($query9))
