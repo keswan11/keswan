@@ -192,6 +192,20 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $data = $this->db->get();
     return $data->result();
   }
+  function status_lapangan($id_pengajuan)
+  {
+    $this->db->select('*');
+    $this->db->from('tb_data_pengajuan_surat_rekomendasi');
+    $this->db->where('id_pengajuan' , $id_pengajuan);
+   // $this->db->join('tb_jenis_peralatan','tb_jenis_peralatan.id_jenis_peralatan = tb_data_pengajuan_surat_rekomendasi.id_jenis_peralatan');
+   // $this->db->join('tb_kategori_jenis_peralatan','tb_kategori_jenis_peralatan.id_kategori_jenis_peralatan = tb_jenis_peralatan.id_kategori_peralatan');
+    //$this->db->join('tb_sub_kategori_jenis_peralatan','tb_sub_kategori_jenis_peralatan.id_sub_kategori_jenis_peralatan = tb_jenis_peralatan.id_sub_kategori_peralatan');
+    $this->db->join('tb_kesesuaian','tb_kesesuaian.id_status_kesesuaian = tb_data_pengajuan_surat_rekomendasi.id_status_peralatan');
+   /*$this->db->join('tb_list_pengajuan_surat_rekomendasi','tb_list_pengajuan_surat_rekomendasi.id_pengajuan = tb_data_pengajuan_surat_rekomendasi.id_pengajuan');*/
+    /*$this->db->join('tb_jenis_pengajuan','tb_jenis_pengajuan.id_jenis_pengajuan = tb_list_pengajuan_surat_rekomendasi.id_jenis_pengajuan');*/
+    $data = $this->db->get();
+    return $data->result();
+  }
   function get_list_pengajuan_rekomendasi($id_pengajuan="")
   {
     if($id_pengajuan!="")
@@ -288,6 +302,7 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $sql="SELECT * FROM tb_data_pengajuan_surat_rekomendasi a
     INNER JOIN tb_list_pengajuan_surat_rekomendasi b ON a.id_pengajuan=b.id_pengajuan
     INNER JOIN tb_status_peralatan c ON a.id_status_peralatan=c.id_status_peralatan
+    INNER JOIN tb_kesesuaian d ON a.id_status_kesesuaian=d.id_status_kesesuaian
     AND a.id_pengajuan=$id_pengajuan
     AND a.id_jenis_peralatan=$id_jenis_peralatan
     AND b.id_jenis_pengajuan=$id_jenis_pengajuan";

@@ -222,6 +222,7 @@ class Surat_rekomendasi extends CI_Controller {
 			$data['data_list_surat_rekomendasi']=$this->Model_surat_rekomendasi->get_list_rekomendasi($id_pengajuan);
 				$data['data_operator']=$this->Model_surat_izin->get_operator($id_operator);
 				$data['stat_peralatan']=$this->Model_surat_rekomendasi->status_peralatan($id_pengajuan);
+				$data['stat_lapangan']=$this->Model_surat_rekomendasi->status_lapangan($id_pengajuan);
 			if($this->session->userdata('id_operator')!=NULL)
     		{ 
 			    $data['menu'] = $menu_list;

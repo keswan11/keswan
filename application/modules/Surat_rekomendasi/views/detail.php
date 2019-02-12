@@ -45,7 +45,7 @@
       <?php foreach($get_tempat_praktik as $dtempat)
       {?>
           <?php if($dtempat->nama_jenis_biodata == "nama_lengkap"){ ?>
-            <h4 class="col-sm-3" style="margin-left:14px;">Nama Tempat Praktik/Pelayanan/Ambulatori/Klinik Hewan/RSH</h4>
+            <h4 class="col-sm-3" style="margin-left:14px;">Nama Tempat Praktik/Pelayanan/Ambulatori/Klinik Hewan/RSH</h4><br>
             <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> <br><br></h4>
           <?php  }else { ?>
             <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dtempat->nama_jenis_biodata))?></h4>
@@ -210,7 +210,8 @@
                                         echo '<li>'.ucwords($syarat->nama_peralatan).
                                         '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
                                         <br>
-                                   <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
+                                   <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b><br>
+                                   <b><text style="margin-left:30px; font-size:14px;">Status Lapangan:&nbsp; '.$dket->nama_status_kesesuaian.' </text></b>
                                     <div class="row">
                                     <div class="col-md-6">
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
@@ -232,7 +233,8 @@
                                     echo '<li>'.ucwords($syarat->nama_peralatan).
                                     '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
                                     <br>
-                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b><br>
+                                
                                     <div class="row">';
                                     
                                     if(strpos($op->nama_role_operator,"Administrasi")!==false)
@@ -321,7 +323,8 @@
                                 echo '<li>'.ucwords($syarat->nama_peralatan).
                                 '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b>
                                 <br>
-                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b><br>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Lapangan:&nbsp; '.$dket->nama_status_kesesuaian.' </text></b>
                                 <div class="row">
                                 <div class="col-md-6">
                                 <b><text style="margin-left:30px; font-size:12px;">Keterangan Administrasi<text></b>
@@ -343,7 +346,8 @@
                                 echo '<li>'.ucwords($syarat->nama_peralatan).
                                 '<br><b><text style="margin-left:30px; font-size:14px;">Jumlah '.$this->Model_surat_rekomendasi->get_jumlah_persyaratan($id_jenis_pengajuan,$id_pengajuan,$syarat->id_jenis_peralatan).'</text></b> 
                                 <br>
-                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b>
+                                <b><text style="margin-left:30px; font-size:14px;">Status Barang:&nbsp;  '.$dket->nama_status_peralatan.'</text></b><br>
+                                
                                 <div class="row">';
                                 
                                  if(strpos($op->nama_role_operator,"Administrasi")!==false)

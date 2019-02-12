@@ -223,7 +223,8 @@
                                       <ul class="dropdown-menu">
                                         <form method="post" action="" enctype="multipart/form-data">
                                         <input type="file" name="file">
-                                        <input type="submit" name="preview" value="Preview">
+                                        <br>
+                                        <button type="submit" name="import">Import</button>
                                       </form>
                                       </ul>
                                 </div>'; 
@@ -238,16 +239,9 @@
                                   </a>
                                   <ul class="dropdown-menu">
                                       <form method="post" action="" enctype="multipart/form-data">
-                                      <!-- 
-                                      -- Buat sebuah input type file
-                                      -- class pull-left berfungsi agar file input berada di sebelah kiri
-                                      -->
                                       <input type="file" name="file">
-                                      
-                                      <!--
-                                      -- BUat sebuah tombol submit untuk melakukan preview terlebih dahulu data yang akan di import
-                                      -->
-                                      <input type="submit" name="preview" value="Preview">
+                                      <br>
+                                      <button type="submit" name="import">Import</button>
                                     </form>
                                   </ul>
                                 </div>'; 
@@ -262,16 +256,9 @@
                                   </a>
                                   <ul class="dropdown-menu">
                                   <form method="post" action="" enctype="multipart/form-data">
-                                  <!-- 
-                                  -- Buat sebuah input type file
-                                  -- class pull-left berfungsi agar file input berada di sebelah kiri
-                                  -->
                                   <input type="file" name="file">
-                                  
-                                  <!--
-                                  -- BUat sebuah tombol submit untuk melakukan preview terlebih dahulu data yang akan di import
-                                  -->
-                                  <input type="submit" name="preview" value="Preview">
+                                  <br>
+                                  <button type="submit" name="import">Import</button>
                                 </form>
                                   </ul>
                                 </div>'; 
