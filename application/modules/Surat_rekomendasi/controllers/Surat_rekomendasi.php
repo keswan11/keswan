@@ -25,8 +25,6 @@ class Surat_rekomendasi extends CI_Controller {
     
 	foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $dpengajuan)
 	{
-		$nama_pengguna=null;
-		$email_pengguna=null;
 		foreach($this->Model_surat_rekomendasi->get_member_by_id($dpengajuan->id_member) as $dmember)
 	    {
 	        if($dmember->id_jenis_biodata==12)
@@ -265,9 +263,7 @@ class Surat_rekomendasi extends CI_Controller {
     
 	foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $dpengajuan)
 	{
-		$nama_pengguna=null;
-		$email_pengguna=null;
-		foreach($this->Model_surat_rekomendasi->get_member_by_id($dpengajuan->id_member) as $dmember)
+		foreach($this->Model_surat_rekomendasi->get_member_by_id($id_pengajuan) as $dmember)
 	    {
 	        if($dmember->id_jenis_biodata==12)
 	        {
@@ -367,7 +363,7 @@ class Surat_rekomendasi extends CI_Controller {
 			{
                 echo "<script>
                 alert('Surat berhasil di terbitkan !');
-                window.location.href='".$return_page."';
+                window.location.href='".base_url()."page_operator/index/kepala_dinas_otovet_pusat/surket_fasilitas_ambulatori_pmdn';
                 </script>";
 			}
 	  }
