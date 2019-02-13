@@ -1,94 +1,108 @@
 <!-- Main Content -->
-<section class="content">
-  <div class="box box-primary">
-    <div class="box-header with-border">
-      <h3 class="box-title">Detail
-        <?php foreach($data_pengajuan as $dpengajuan){ $nama_pengajuan=$dpengajuan->nama_jenis_pengajuan;
-        echo $nama_pengajuan;}?></h3>
-    </div>
-    <?php
-      echo form_open('surat_rekomendasi/detail','class="form-horizontal"');
-      ?>
+<div class="content">
+<div class="container-fluid">  
+<div class="row">
+<div class="col-md-12">
+	<div class="card">
 
-    <div class="box-body">
-      <?php
-      $data_wilayah=$this->Model_surat_rekomendasi->get_wilayah();
-      $get_id_wilayah=$this->Model_surat_rekomendasi->get_id_wilayah_pengajuan($id_pengajuan);
-      $get_tempat_praktik=$this->Model_surat_rekomendasi->get_tempat_praktik($id_pengajuan);
-      $get_data_pj=$this->Model_surat_rekomendasi->get_data_penanggung_jawab($id_pengajuan);
-      $get_data_berkas=$this->Model_surat_rekomendasi->get_data_berkas($id_pengajuan);
-      $data_member=$this->Model_surat_rekomendasi->get_member_by_id($id_pengajuan);
-      ?>
-      <div class="box box-widget widget-user">
-            <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-blue-active">
-              <h3 class="widget-user-username">Detail Tempat Praktik</h3>
-              <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
-            </div>
-            <div class="box-body">
+		<div class="card-header card-header-tabs card-header-primary">
+		<div class="nav-tabs-navigation">
+		<div class="nav-tabs-wrapper">
+			<h3 class="box-title">Detail
+				<?php foreach($data_pengajuan as $dpengajuan){ $nama_pengajuan=$dpengajuan->nama_jenis_pengajuan;
+				echo $nama_pengajuan;}?>
+			</h3>
+		</div>
+		</div>
+		</div>
 
-      <?php
-      echo '
-      <div class="form-group">
-      <h4 class="col-sm-3" style="margin-left:14px;">Wilayah Pengajuan</h4>';
-      foreach($data_wilayah as $dwilayah)
-      {
-        if($get_id_wilayah==$dwilayah->id_wilayah)
-        {
-          echo '<h4 class="col-sm-6" style="margin-left:14px;"> : '.$dwilayah->nama_wilayah.'</h4>';
-        }
-      }
-      echo '</div>';
-      ?>
-      
-      <div class="form-group">
-      <?php foreach($get_tempat_praktik as $dtempat)
-      {?>
-          <?php if($dtempat->nama_jenis_biodata == "nama_lengkap"){ ?>
-            <h4 class="col-sm-3" style="margin-left:14px;">Nama Tempat Praktik/Pelayanan/Ambulatori/Klinik Hewan/RSH</h4><br>
-            <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> <br><br></h4>
-          <?php  }else { ?>
-            <h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dtempat->nama_jenis_biodata))?></h4>
-            <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> </h4>
-          <?php  } ?>
-       <?php   }?>
-      </div>
-      </div>
-      </div>
-          <?php
-      //$stat_pengajuan=$this->Model_surat_rekomendasi->get_status_rekomendasi($id_pengajuan);
-      //$status=array("Diajukan","Terdisposisi","Terverifikasi Dokumen","Terverifikasi Lapangan","Diterbitkan");
-      
-      /*echo '
-      <div class="row">
-      <div class="col-md-3">
-      <br><h4 style="margin-left:14px;">Status Pengajuan<h4>
-      </div>
-      <div>
-      <select style="margin-top:16px; width:280px;" class="form-control" name="id_status_pengajuan">';
-      for($i=0;$i<count($status);$i++)
-      {
-        if($i+1==$stat_pengajuan)
-        {
-          $select='selected=""';
-        }
-        else
-        {
-          $select="";
-        }
-        echo ' <option value="'.($i+1).'"'.$select.'>'.$status[$i].'</option>';
-      }
-      echo '</select></div></div><br>';*/
-       ?>
-       <div class="box box-widget widget-user">
+		<?php
+		  echo form_open('surat_rekomendasi/detail','class="form-horizontal"');
+		  ?>
+
+		<div class="card-body">
+		
+		
+			<div class="row">
+
+			  <?php
+			  $data_wilayah=$this->Model_surat_rekomendasi->get_wilayah();
+			  $get_id_wilayah=$this->Model_surat_rekomendasi->get_id_wilayah_pengajuan($id_pengajuan);
+			  $get_tempat_praktik=$this->Model_surat_rekomendasi->get_tempat_praktik($id_pengajuan);
+			  $get_data_pj=$this->Model_surat_rekomendasi->get_data_penanggung_jawab($id_pengajuan);
+			  $get_data_berkas=$this->Model_surat_rekomendasi->get_data_berkas($id_pengajuan);
+			  $data_member=$this->Model_surat_rekomendasi->get_member_by_id($id_pengajuan);
+			  ?>
+			  
+			  <?php
+			  echo '
+			  
+			  <h4 class="col-sm-3" style="margin-left:14px;">Wilayah Pengajuan</h4>';
+			  foreach($data_wilayah as $dwilayah)
+			  {
+				if($get_id_wilayah==$dwilayah->id_wilayah)
+				{
+				  echo '<h4 class="col-sm-6" style="margin-left:14px;"> : '.$dwilayah->nama_wilayah.'</h4>';
+				}
+			  }
+			  
+			  ?>
+			</div>
+			
+			<div class="row">
+			  <?php foreach($get_tempat_praktik as $dtempat)
+			  {?>
+				  <?php if($dtempat->nama_jenis_biodata == "nama_lengkap"){ ?>
+					<h4 class="col-sm-3" style="margin-left:14px;">Nama Tempat Praktik/Pelayanan/Ambulatori/Klinik Hewan/RSH</h4><br>
+					<h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> <br><br></h4>
+				  <?php  }else { ?>
+					<h4 class="col-sm-3" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dtempat->nama_jenis_biodata))?></h4>
+					<h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dtempat->isi_biodata_tempat_praktik ?> </h4>
+				  <?php  } ?>
+			   <?php   }?>
+			</div>  
+			  <?php
+			  //$stat_pengajuan=$this->Model_surat_rekomendasi->get_status_rekomendasi($id_pengajuan);
+			  //$status=array("Diajukan","Terdisposisi","Terverifikasi Dokumen","Terverifikasi Lapangan","Diterbitkan");
+
+			  /*echo '
+			  <div class="row">
+			  <div class="col-md-3">
+			  <br><h4 style="margin-left:14px;">Status Pengajuan<h4>
+			  </div>
+			  <div>
+			  <select style="margin-top:16px; width:280px;" class="form-control" name="id_status_pengajuan">';
+			  for($i=0;$i<count($status);$i++)
+			  {
+				if($i+1==$stat_pengajuan)
+				{
+				  $select='selected=""';
+				}
+				else
+				{
+				  $select="";
+				}
+				echo ' <option value="'.($i+1).'"'.$select.'>'.$status[$i].'</option>';
+			  }
+			  echo '</select></div></div><br>';*/
+			   ?>
+		
+		
+		
+		
+		</div>
+	</div>	
+
+		<div class="card">
              <!-- Add the bg color to the header using any of the bg-* classes -->
-             <div class="widget-user-header bg-blue-active">
+             <div class="card-header card-header-tabs card-header-primary">
                <h3 class="widget-user-username">Detail Penanggung Jawab</h3>
                <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
              </div>
-             <div class="box-body">
-       
-              <div class="form-group">
+            
+			<div class="card-body">
+			<div class="row">
+              
               <?php foreach($get_data_pj as $dpj)
               {?>
                   <?php if($dpj->nama_jenis_biodata == "nomor_ktp"){ ?>
@@ -99,17 +113,21 @@
                     <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dpj->isi_biodata_penanggung_jawab ?> </h4>
                   <?php  } ?>
               <?php   }?>
-              </div>
+              
             </div>
-       </div>
+            </div>
+		</div>
 
-      <div class="box box-widget widget-user">
+	
+    <div class="card">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-blue-active">
+            <div class="card-header card-header-tabs card-header-primary">
               <h3 class="widget-user-username">Detail Pemohon</h3>
               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
             </div>
-            <div class="box-body">
+			
+            <div class="card-body">
+			<div class="row">
               <?php foreach($data_member as $dmember)
               {?>
                   <?php if($dmember->nama_jenis_biodata == "scan_ktp"){ ?>
@@ -120,16 +138,21 @@
                     <h4 class="col-sm-6" style="margin-left:14px;"> : <?php echo $dmember->isi_biodata_member ?> </h4>
                   <?php } ?>
               <?php   }?>
-              </div>
-       <div class="box box-widget widget-user">
+			</div>
+			</div>
+	</div>
+              <!-- /.row -->
+    
+	<div class="card">
              <!-- Add the bg color to the header using any of the bg-* classes -->
-             <div class="widget-user-header bg-blue-active">
+             <div class="card-header card-header-tabs card-header-primary">
                <h3 class="widget-user-username">Berkas Pemohon</h3>
                <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
              </div>
-             <div class="box-body">
-       
-              <div class="form-group">
+             
+			<div class="card-body">
+			<div class="row">
+              
               <?php foreach($get_data_berkas as $dberkas)
               {?>
                   <div class="col-md-4">
@@ -137,17 +160,19 @@
                     <img width="300px" height="auto" src="<?php echo base_url()."images/".$dberkas->isi_biodata_berkas;?>">
                   </div>
                 <?php   }?>
-              </div>
+              
+            </div>
             </div>
        </div>
-
-      <div class="box box-widget widget-user">
+	   
+    <div class="card">
             <!-- Add the bg color to the header using any of the bg-* classes -->
-            <div class="widget-user-header bg-blue-active">
+            <div class="card-header card-header-tabs card-header-primary">
               <h3 class="widget-user-username">Detail Peralatan</h3>
               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
             </div>
-            <div class="box-body">
+            
+			<div class="card-body">
               <input type="text" name="id_jenis_pengajuan" hidden="true" value="<?php echo $id_jenis_pengajuan; ?>"></input>
               <input type="text" name="id_pengajuan" hidden="true" value="<?php echo $id_pengajuan; ?>"></input>
               <input type="text" name="id_member" hidden="true" value="<?php echo $id_member; ?>"></input>
@@ -386,12 +411,8 @@
                   echo '</ol>';?>
             </div>
               <!-- /.row -->
-    </div>
-    </div>
-    </div>
-          <!-- /.widget-user -->
-
-    <div class="box-footer">
+    
+	
      <?php
      foreach($data_operator as $op)
      {
@@ -411,8 +432,8 @@
                  $onclick_tolak="return confirm('Anda yakin ingin menolak surat permohonan ini ?')";
                  
                     echo '
-                      <div class="box-footer">
-                      <button style="margin-left:10px;" type="submit" onclick="'.$onclick_submit.'" class="btn btn-success pull-right" name="submit">Verfikasi</button>
+                      <div class="card-footer">
+                      <button  style="margin-left: 650px" type="submit" onclick="'.$onclick_submit.'" class="btn btn-success pull-right" name="submit">Verfikasi</button>
             
                       <a onclick="'.$onclick_tolak.'" class="btn btn-danger pull-right" href="'.base_url().'surat_rekomendasi/tolak_surat/'.$id_jenis_pengajuan.'/'.$id_pengajuan.'">
                       Tolak Surat Rekomendasi
@@ -425,13 +446,18 @@
             {
                 echo '<h3 style="padding:10px;">Surat Sudah Di Tolak Atau Di Terbitkan !</h3>';
             }
+        }     
         }
-                                    
-                              }
-                          }
-     
+        }
      ?>
-    </div>
-  </form>
+    
+	</div>
+          <!-- /.widget-user -->
+
+    
+  
+
+</div>
+</div>
 </div>
 </div>

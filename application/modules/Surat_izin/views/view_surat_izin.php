@@ -1,47 +1,66 @@
-<section class="content-header">
-  <h1>
-    List Pengajuan
-  </h1>
-</section>
+<head>
 
-<section class="content">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="box">
-        <div class="box-header"><small>
+	
 
-        <?php
+	
+	<!-- Ionicons -->
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables/dataTables.bootstrap.css">
+	
+	
+	<!-- Bootstrap 3.3.6 -->
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css">
+	
+  
+  
 
-        echo anchor('surat_izin/input/'.$id_jenis_pengajuan,'<i class="glyphicon glyphicon-plus"></i> Pengajuan','class="btn bg-green"');
+</head>
 
-        ?>
-
-      </small>
-        </div>
-        
-        <div class="box-body">
-           
-          <input type="text" name="id_jenis_pengajuan" hidden="true" value="<?php echo $id_jenis_pengajuan; ?>"></input>
-        <input type="text" name="id_pengajuan" hidden="true" value="<?php echo $id_pengajuan; ?>"></input>
-        <input type="text" name="id_member" hidden="true" value="<?php echo $id_member; ?>"></input>
-        
-         <?php
-      echo form_open_multipart('surat_izin/update','class="form-horizontal"');
-    ?>
-          <table id="tabel" class="table table-bordered">
-            <thead>
-              <tr>
-                <td>Nama Member</td>
-                <td>Jenis Pengajuan</td>
-                <td>Wilayah</td>
-                <td>Status Pengajuan</td>
-                <td>Tanggal Dibuat</td>
-                <td>Aksi</td>
-              </tr>
-            </thead>
-            <tbody>
+	  
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              
+			  <div class="card">
+                <div class="card-header card-header-primary">
+                  <h1><?php echo $title;?></h1>
+                </div>
                 
-                  
+				<div class="card-body">
+                
+					<small>
+
+					<?php
+
+					echo anchor('surat_izin/input/'.$id_jenis_pengajuan,'<i class="material-icons">add</i> Pengajuan','class="btn bg-green btn-round"');
+					
+					?>
+
+					</small>
+					
+					    <input type="text" name="id_jenis_pengajuan" hidden="true" value="<?php echo $id_jenis_pengajuan; ?>"></input>
+						<input type="text" name="id_pengajuan" hidden="true" value="<?php echo $id_pengajuan; ?>"></input>
+						<input type="text" name="id_member" hidden="true" value="<?php echo $id_member; ?>"></input>
+						
+						<?php
+						  echo form_open_multipart('surat_izin/update','class="form-horizontal"');
+						?>
+				
+				<div class="table-responsive">
+                    <table id="tabel" class="table table-bordered table-hover">
+                      <thead class=" text-primary">
+						  <tr>
+							<td>Nama Member</td>
+							<td>Jenis Pengajuan</td>
+							<td>Wilayah</td>
+							<td>Status Pengajuan</td>
+							<td>Tanggal Dibuat</td>
+							<td>Aksi</td>
+						  </tr>
+						</thead>
+                    <tbody>
                     <?php
                     $i=1;
                     // <a href="'.base_url().'surat_izin/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'">'.$i.'. Data ID '.$i.'</a>
@@ -145,17 +164,20 @@
                      <td>'.$dsurat->tgl.'</td>
                      <td>'.$status.'</td>
                     </tr>';
-                  $i++;}?>
+					$i++;}?>
                   
-              <!-- anchor(site_url($this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$id_pengajuan), "Submit", array("class" => "btn  btn-success")).'
+					<!-- anchor(site_url($this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$id_pengajuan), "Submit", array("class" => "btn  btn-success")).'
                      '.anchor(site_url($this->uri->segment(1).'/'.$this->uri->segment(2).'/'.$id_pengajuan), "Cetak", array("class" => "btn  btn-primary")) -->
-            </tbody>
-          </table>
+					</tbody>
+                    </table>
+                  </div>
+                </div>
+                </div>
+              </div>
+            </div>
+            
+			
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+      
       

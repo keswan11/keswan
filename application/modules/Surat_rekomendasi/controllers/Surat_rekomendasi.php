@@ -25,7 +25,7 @@ class Surat_rekomendasi extends CI_Controller {
     
 	foreach($this->Model_surat_rekomendasi->get_list_pengajuan_rekomendasi($id_pengajuan) as $dpengajuan)
 	{
-		foreach($this->Model_surat_rekomendasi->get_member_by_id($id_pengajuan) as $dmember)
+		foreach($this->Model_surat_rekomendasi->get_member_by_id($dpengajuan->id_member) as $dmember)
 	    {
 	        if($dmember->id_jenis_biodata==12)
 	        {

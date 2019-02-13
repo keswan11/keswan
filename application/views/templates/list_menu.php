@@ -1,6 +1,12 @@
+<head>
+	<!-- Theme style -->
+	<link rel="stylesheet" href="<?php echo base_url() ?>assets/dist/css/AdminLTE.min.css">
+  
+</head>
+<body>
 <?php
 if ($this->session->userdata('level') == "Admin") {
-    echo "<ul class='sidebar-menu' id='nav'>";
+    echo "<ul class='sidebar-wrapper' id='nav'>";
     echo "<li class='header'>MENU</li>";
     $main=$this->db->query("SELECT * FROM tabel_menu WHERE parent = 0 AND role_menu = 'admin' AND aktif = '1' ORDER BY posisi ASC");
     foreach ($main->result() as $m)
@@ -10,14 +16,14 @@ if ($this->session->userdata('level') == "Admin") {
         $sub=$this->db->get_where('tabel_menu',array('parent'=>$m->menu_id,'aktif'=>'1'));
         if($sub->num_rows() >0)
         {
-            echo "<li class='treeview'>";
-            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-right'></i></a>";
+            echo "<li class='nav-item'>";
+            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-left'></i></a>";
             echo "<ul class='treeview-menu'>";
             foreach ($sub->result() as $s){
-                echo "<li>".anchor($s->link, '<i class="'.$s->icon.'"></i>'.$s->nama_menu)."</li>";
+                echo "<li>".anchor($s->link, '<i class="material-icons">code</i>'.$s->nama_menu)."</li>";
             }
             echo "</ul>";
-            echo "<li>";
+            echo "</li>";
         }
         else
         {
@@ -30,7 +36,7 @@ if ($this->session->userdata('level') == "Admin") {
     echo "&nbsp;";
 } else if($this->session->userdata('id_member') != NULL){
     echo "<ul class='sidebar-menu' id='nav'>";
-    echo "<li class='header'>MENU</li>";
+    
     $main=$this->db->query("SELECT tabel_menu.*,tb_menu_member.*,tb_jenis_member.*,tb_jenis_warga.* FROM tb_menu_member
         INNER JOIN tabel_menu ON tb_menu_member.menu_id = tabel_menu.menu_id 
         INNER JOIN tb_jenis_member ON tb_menu_member.id_jenis_member = tb_jenis_member.id_jenis_member
@@ -42,11 +48,13 @@ if ($this->session->userdata('level') == "Admin") {
         $sub=$this->db->get_where('tabel_menu',array('parent'=>$m->menu_id,'aktif'=>'1'));
         if($sub->num_rows() >0)
         {
-            echo "<li class='treeview'>";
+            echo "<li class='nav-item'>";
+			
             echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-right'></i></a>";
-            echo "<ul class='treeview-menu'>";
+           
+			echo "<ul class='treeview-menu'><div class='nav'></div>";
             foreach ($sub->result() as $s){
-                echo "<li>".anchor($s->link, '<i class="'.$s->icon.'"></i>'.$s->nama_menu)."</li>";
+                echo "<li>".anchor($s->link, '<i class="material-icons" style="width: 14px; padding-bottom:0px"></i>'.$s->nama_menu)."</li>";
             }
             echo "</ul>";
             echo "<li>";
@@ -61,7 +69,10 @@ if ($this->session->userdata('level') == "Admin") {
     echo "</ul>";
     echo "&nbsp;";
 } else{
-    ?>
+?>
+	
+	
+	
     <ul class="sidebar-menu tree" data-widget="tree">
       <?php
     //list menu
@@ -79,12 +90,16 @@ if ($this->session->userdata('level') == "Admin") {
           $active = 'active';
       } 
       ?>
-      <li class="treeview <?php echo $active ?>">
+	  
+      <li style="padding-top:0px" class="nav-item <?php echo $active ?>">
+	  
           <a href="<?php echo base_url()."page_operator/index/".$str_role."/".$link ?>">
-            <i class="fa fa-circle-o"></i>
+            <i class="material-icons" style="width: 14px;"></i>
             <?php echo $surat ?>
         </a>
     </li>
 <?php endforeach ?>
 </ul>
 <?php } ?>
+
+</body>
