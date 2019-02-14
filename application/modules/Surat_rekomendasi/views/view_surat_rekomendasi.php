@@ -33,7 +33,7 @@
 						?>
 				
 				<div class="table-responsive">
-                    <table id="tabel" class="table table-bordered table-hover">
+                    <table id="tabel" style="width: 120%" class="table table-bordered table-hover">
                       <thead class=" text-primary">
 						  <tr>
 							<td>Nama Member</td>

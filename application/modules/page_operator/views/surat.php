@@ -36,20 +36,20 @@
 				$end_adm_lap = end($get_adm_lap);
 				$status = array('Terkirim', 'Disposisi', 'Terverifikasi Administrasi', 'Terverifikasi Lapangan', 'Terbitkan');
 			   ?>
-			<div class="table-responsive"> 
-			  <table id="tabel" class="table table-bordered table-hover">
-				<thead class="text-primary">
+			<div class="box-body" > 
+			  <table id="tabel" style="width: 102%" class="table table-bordered table-hover">
+				<thead class="text-primary"  >
 				  <tr>
 					<td>ID Pengajuan</td>
 					<td>ID Member</td>
-					<td>Jenis Pengajuan</td>
+					<td style="width: 30%">Jenis Pengajuan</td>
 					<td>Wilayah</td>
-					<td>Jenis Warga</td>
-					<td>Status Sekarang</td>
+					<td style="width: 20%">Jenis Warga</td>
+					<td style="width: 20%">Status Sekarang</td>
 					<td>Detail</td>
 					  <td>Cetak</td>
 					<?php if( $end_adm_lap != 'Administrasi' && $end_adm_lap != 'Lapangan' ): ?>
-					  <td>Update Status Pengajuan</td>
+					  <td style="width: 70%" >Update Status Pengajuan</td>
 					<?php endif ?>
 				  </tr>
 				</thead>
