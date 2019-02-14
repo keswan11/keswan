@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Page_operator extends CI_Controller {
-
+  private $filename = "Lampiran";
   public function __construct()
   {
     parent::__construct();
@@ -349,7 +349,53 @@ class Page_operator extends CI_Controller {
     $this->pdf->render();
     $this->pdf->stream($nama_file,array('Attachment'=>0));
   }
+  function import($id_pengajuan){
+		// Load plugin PHPExcel nya
+		include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+		$excelreader = new PHPExcel_Reader_Excel2007();
+		$loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang telah diupload ke folder excel
+		$sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
+		
+		// Buat sebuah variabel array untuk menampung array data yg akan kita insert ke database
+		$data = array();
+    $baru=$this->Page_operator_model->get_status_lapangan($id_pengajuan);
+    $barusan=$this->Page_operator_model->datadata();
+ 
+      $numrow = 1;
+		foreach($sheet as $row){
+			// Cek $numrow apakah lebih dari 1
+			// Artinya karena baris pertama adalah nama-nama kolom
+			// Jadi dilewat saja, tidak usah diimport
+			if($numrow > 2){
+				// Kita push (add) array data ke variabel data
+				if($row['G'] == null && $row['H']==null){
+					$status=0;
+				}else if($row['G']!=null){
+					$status=1;
+				}else{
+					$status=2;
+				}
+				array_push($data, array(
+					'id_status_kesesuaian'=>$status
+        ));
+          $ini=$this->db->select('id_jenis_peralatan')->from('tb_jenis_peralatan')->where('nama_peralatan', $row['D'])->get()->row_array();
+           $this->db->where('id_pengajuan', $id_pengajuan);
+           $this->db->where('id_jenis_peralatan', $ini['id_jenis_peralatan']);
+           $this->db->update('tb_data_pengajuan_surat_rekomendasi', array('id_status_kesesuaian'=>$status)); 
+            
+      }
+    
+            
+			$numrow++; // Tambah 1 setiap kali looping
+      
+    }
   
+		//redirect("page_operator/index/dinas_otovet_pusat_lapangan/surket_fasilitas_ambulatori_pmdn"); // Redirect ke halaman awal (ke controller siswa fungsi index)
+    echo "<script>
+                alert('Surat berhasil di terbitkan !');
+                window.location.href='".base_url()."page_operator/index/dinas_otovet_pusat_lapangan/surket_fasilitas_ambulatori_pmdn';
+                </script>";
+	}
   
 }
 
