@@ -1,9 +1,5 @@
-<section class="content-header">
-  <h1>
-    <?php echo $title ?>
-  </h1>
-</section>
-<section class="content">
+<!-- Main Content -->
+<div class="content">
   <?php if($this->session->flashdata('message')): ?>
     <div class="row">
       <div class="col-sm-12">
@@ -14,27 +10,52 @@
       </div>
     </div>
   <?php endif; ?>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="box">
-        <div class="box-header">
-          <h3 class="box-title">Data Member &nbsp; 
-          </h3>
-        </div>
-        <div class="box-body">
-          <div class="row">
+	<div class="container-fluid">  
+	<div class="row">
+	<div class="col-md-12">
+	<div class="card">
+
+
+  
+    <div class="card-header card-header-tabs card-header-primary">
+	<div class="nav-tabs-navigation">
+    <div class="nav-tabs-wrapper">
+		<h3 class="box-title"><?php echo $title ?></h3>
+					<div class="card-footer"></div>  
+						<ul class="nav nav-tabs" data-tabs="tabs">
+						<li class="nav-item">
+                          <a class="nav-link active" href="#Biodata" data-toggle="tab" >
+                            <i class="material-icons">assignment</i> Detail Tempat Praktik
+							<div class="ripple-container"></div>
+                          </a>
+                        </li>
+						
+						<li class="nav-item">
+                          <a class="nav-link" href="#KTP"  data-toggle="tab">
+                            <i class="material-icons">assignment_ind</i> Detail Data Penanggung Jawab
+                            <div class="ripple-container"></div>
+                          </a>
+                        </li>
+					
+	</div>	
+	</div>	
+	</div>	
+	
+
+  
+
+        <div class="card-body">
+		
             <div class="col-md-12">
               <!-- Custom Tabs -->
-              <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                  <li class="active"><a href="#tab_1" data-toggle="tab">Biodata</a></li>
-                  <li><a href="#tab_2" data-toggle="tab">KTP</a></li>
                   <?php if ($this->session->userdata('id_jenis_member') == 1): ?>
                     <li><a href="#tab_3" data-toggle="tab">Passport</a></li>
                   <?php endif ?>
                 </ul>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="tab_1">
+				
+            <div class="tab-content">
+                  <div class="tab-pane active" id="Biodata">
                    <form class="form-horizontal" method="post" action="<?php echo site_url('profil_member/update_action') ?>" enctype="multipart/form-data">
                     <?php 
                     foreach ($biodata as $bio) {
@@ -114,7 +135,7 @@
                   </form>
                 </div>
                 <!-- /.tab-pane -->
-                <div class="tab-pane" id="tab_2">
+                <div class="tab-pane" id="KTP">
                   <form class="form-horizontal" method="post" action="<?php echo site_url('profil_member/update_ktp') ?>" enctype="multipart/form-data">
                     <?php 
                     foreach ($ktp as $k) {
@@ -143,7 +164,7 @@
                         // }
                         echo "</div>";
                         echo "</div>";
-                        echo "<div class='form-group'>";
+                        echo "<div>";
                         echo "<label for='$k->nama_jenis_biodata' class='col-sm-2 control-label'>$nama</label>";
                         echo "<div class='col-sm-10'>";
                         echo "<input type='hidden' name='id_gambar' value='$k->id_jenis_biodata'>";
@@ -211,13 +232,15 @@
               <!-- /.tab-pane -->
             </div>
             <!-- /.tab-content -->
-          </div>
+          
           <!-- nav-tabs-custom -->
         </div>
       </div>
-    </div>
-  </div>
+    
+
+
+	</div>
+	</div>
+	</div>
+	</div>
 </div>
-</div>
-</div>
-</section>
