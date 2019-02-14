@@ -1,11 +1,4 @@
-<head>
-	<!-- Ionicons -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables/dataTables.bootstrap.css">
 
-	<!-- Bootstrap 3.3.6 -->
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css">
-</head>
 
 	  
       <!-- End Navbar -->
