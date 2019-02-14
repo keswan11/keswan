@@ -73,7 +73,7 @@
 						  }
 
 						  if ($dsurat->id_status_pengajuan <=6) {
-							$status = '<a href="'.base_url().'surat_rekomendasi/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'"><button class="btn btn-primary">Detail</button></a> &nbsp';
+							$status = '<a style="" href="'.base_url().'surat_rekomendasi/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'"><button class="btn btn-primary">Detail</button></a> &nbsp';
 						  }
 						  elseif($dsurat->id_status_pengajuan >= 8)
 						  {

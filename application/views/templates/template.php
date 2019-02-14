@@ -170,7 +170,7 @@
 								
 									
 										<?php if ($this->session->userdata('level') == "Operator"): ?>
-											<p><?php echo $this->session->userdata('nama_role_operator'); ?>
+											<p style="font-size: 14px"><?php echo $this->session->userdata('nama_role_operator'); ?>
 												<?php if ($this->session->userdata('nama_provinsi') != NULL): ?>
 													<small><br>Wilayah : <?php echo $this->session->userdata('nama_provinsi') ?></small>
 												<?php else: ?>
@@ -200,17 +200,17 @@
 						<div class="dropdown-divider"></div>
 						<a>
 							<?php if ($this->session->userdata('id_member') != NULL): ?>
-								<a href="<?php echo base_url('profil_member') ?>" class="dropdown-item">Perbarui profil</a>	
+								<a href="<?php echo base_url('profil_member') ?>" style="font-size: 13px" class="dropdown-item">Perbarui profil</a>	
 							<?php else: ?>
-								<a href="<?php echo site_url('profil_operator') ?>" class="dropdown-item">Perbarui password</a>	
+								<a href="<?php echo site_url('profil_operator') ?>" style="font-size: 13px" class="dropdown-item">Perbarui password</a>	
 							<?php endif ?>				  
 						</a>
 
 						<a>
 							<?php if ($this->session->userdata('id_member') != NULL): ?>
-								<a href="<?php echo base_url('member/keluar') ?>" class="dropdown-item" >Keluar</a>
+								<a href="<?php echo base_url('member/keluar') ?>" style="font-size: 13px" class="dropdown-item" >Keluar</a>
 							<?php else: ?>
-								<a href="<?php echo base_url('login/keluar') ?>" class="dropdown-item" >Keluar</a>
+								<a href="<?php echo base_url('login/keluar') ?>" style="font-size: 13px" class="dropdown-item" >Keluar</a>
 							<?php endif ?>				  
 						</a>
 					  
@@ -220,8 +220,9 @@
 			  </div>  
 			</div>
 		</nav>
-			
+			<div>	
 			<?php echo $contents; ?>
+			</div>
 		</div>
 	
 		<footer class="footer">
@@ -490,6 +491,7 @@
   <script src="<?php echo base_url() ?>assets/plugins/select2/select2.full.min.js"></script>
   <script src="<?php echo base_url() ?>assets/plugins/datatables/jquery.dataTables.min.js"></script>
 
+  
   <!-- SlimScroll -->
   <script src="<?php echo base_url() ?>assets/plugins/slimScroll/jquery.slimscroll.min.js"></script>
   <!-- FastClick -->
