@@ -221,7 +221,7 @@
                                     Import
                                   </a>
                                       <ul class="dropdown-menu">
-                                        <form method="post" action="" enctype="multipart/form-data">
+                                        <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
                                         <input type="file" name="file">
                                         <br>
                                         <button type="submit" name="import">Import</button>
@@ -238,7 +238,7 @@
                                     Import
                                   </a>
                                   <ul class="dropdown-menu">
-                                      <form method="post" action="" enctype="multipart/form-data">
+                                  <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
                                       <input type="file" name="file">
                                       <br>
                                       <button type="submit" name="import">Import</button>
@@ -255,7 +255,7 @@
                                     Import
                                   </a>
                                   <ul class="dropdown-menu">
-                                  <form method="post" action="" enctype="multipart/form-data">
+                                  <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
                                   <input type="file" name="file">
                                   <br>
                                   <button type="submit" name="import">Import</button>
