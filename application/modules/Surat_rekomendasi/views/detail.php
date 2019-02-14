@@ -278,8 +278,8 @@
                                       <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                       <br>
                                       </div>
-                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Ada</label>
-							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Ada</label>';
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Sesuai</label>
+							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Sesuai</label>';
                                     }
                                     
                                     
@@ -390,8 +390,8 @@
                                     <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                     <br>
                                     </div>
-                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Ada</label>
-							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Ada</label>'; 
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Sesuai</label>
+							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Sesuai</label>'; 
                                   }
                                   
                                   echo ' </div>

@@ -335,7 +335,157 @@
 		  
 	</div>
 
+<<<<<<< HEAD
+                          }//tutup 5
+                          //LAMPIRAN ID STATUS PENGAJUAN 3 ATAU 2
+                          elseif($data->id_status_pengajuan == 3 || $data->id_status_pengajuan == 2)
+                          {
+                            if($end_adm_lap == 'Lapangan'){
+                                if($data->id_jenis_pengajuan == 13 || $data->id_jenis_pengajuan == 17)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_1/"><img src="'.base_url().'images/icons8-pdf-26.png" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_1/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                  echo '<li class="dropdown user user-menu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                    Import
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                    <!-- User image -->
+                                    <li class="user-header">
+                                      
+                                                        ///
+                    
+                                    </li>
+                                    <!-- Menu Footer-->
+                                    <li class="user-footer">
+                                      <div class="pull-right">
+                                        ///
+                                      </div>
+                                      <div class="pull-left">
+                                        ///
+                                      </div>
+                                    </li>
+                                  </ul>
+                                </li>'; 
+                                }
+                                elseif($data->id_jenis_pengajuan == 16 || $data->id_jenis_pengajuan == 12)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_2/"><img src="'.base_url().'images/icons8-pdf-26.png" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_2/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                  echo '
+                                  <div class="dropdown user user-menu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                    Import
+                                  </a>
+                                      <ul class="dropdown-menu">
+                                        <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
+                                        <input type="file" name="file">
+                                        <br>
+                                        <button type="submit" name="import">Import</button>
+                                      </form>
+                                      </ul>
+                                </div>'; 
+                                }
+                                elseif($data->id_jenis_pengajuan == 14 || $data->id_jenis_pengajuan == 18)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_3/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_3/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
+                                  echo '<div class="dropdown user user-menu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                    Import
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                  <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
+                                      <input type="file" name="file">
+                                      <br>
+                                      <button type="submit" name="import">Import</button>
+                                    </form>
+                                  </ul>
+                                </div>'; 
+                                }
+                                elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 15)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><img src="'.base_url().'images/icons8-pdf-26.png" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                  echo '<div class="dropdown user user-menu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                    Import
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                  <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
+                                  <input type="file" name="file">
+                                  <br>
+                                  <button type="submit" name="import">Import</button>
+                                </form>
+                                  </ul>
+                                </div>'; 
+                                }
+                              }else{
+                                 if($data->id_jenis_pengajuan == 13 || $data->id_jenis_pengajuan == 17)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_1/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px">';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_1/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                }
+                                elseif($data->id_jenis_pengajuan == 16 || $data->id_jenis_pengajuan == 12)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_2/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_2/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                }
+                                elseif($data->id_jenis_pengajuan == 14 || $data->id_jenis_pengajuan == 18)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_3/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_3/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
+                                }
+                                elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 15)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px">';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                }
+                              }
+                            }
+                          else{
+                            echo"";
+                          }
+                        ?>
+                      </td>
+                      <td>
+                        <?php
+                        if($data->id_status_pengajuan ==1){
+                          echo 
+                          anchor(
+                              base_url().$link_jenis_surat."/update_status/".$data->id_pengajuan."/2/".$data->id_jenis_pengajuan.urldecode($_SERVER['REQUEST_URI']), 
+                              
+                              $status[$data->id_status_pengajuan], array('class' => 'btn btn-block btn-success')
+                              );//urlencode diganti decode 
+                        }else if($data->id_status_pengajuan == 4)
+                        {
+                            echo 
+                            anchor(
+                                base_url().$link_jenis_surat."/terbitkan_surat/".$data->id_jenis_pengajuan."/".$data->id_pengajuan.urldecode($_SERVER['REQUEST_URI']), 
+                                
+                                $status[$data->id_status_pengajuan], array('class' => 'btn btn-block btn-success')
+                              ); //urlencode diganti decode 
+                        }
+                        else if ($data->id_status_pengajuan == 5){
+                          echo "Sudah diterbitkan";
+                        }
+                        else if ($data->id_status_pengajuan == 6){
+                          echo "Ditolak";
+                        }
+                        ?>    
+                      </td>
+                  </tr>
+              <?php endforeach ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+=======
 </div>
 </div>
 </div>
 </div>
+>>>>>>> 16c136fa1e9df364858d34f7381dd4bc31cfd477
