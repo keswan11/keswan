@@ -32,15 +32,15 @@
 						//echo form_open_multipart('surat_rekomendasi/update','class="form-horizontal"');
 						?>
 				
-				<div class="table-responsive">
-                    <table id="tabel" style="width: 120%" class="table table-bordered table-hover">
+				<div class="card-body">
+                    <table id="tabel" style="width: 118%" class="table table-bordered table-hover">
                       <thead class=" text-primary">
 						  <tr>
-							<td>Nama Member</td>
-							<td>Jenis Pengajuan</td>
-							<td>Wilayah</td>
-							<td>Status Pengajuan</td>
-							<td>Tanggal Dibuat</td>
+							<td style="width: 20%">Nama Member</td>
+							<td style="width: 30%">Jenis Pengajuan</td>
+							<td style="width: 10%">Wilayah</td>
+							<td style="width: 20%">Status Pengajuan</td>
+							<td style="width: 20%">Tanggal Dibuat</td>
 							<td>Aksi</td>
 						  </tr>
 						</thead>
