@@ -273,13 +273,34 @@
                                     
                                     if(strpos($op->nama_role_operator,"Lapangan")!==false)
                                     {
+                                      foreach($this->Model_surat_rekomendasi->get_status_lapangan($id_pengajuan, $syarat->id_jenis_peralatan) as $geting){
+                                      $baru=$geting->id_status_kesesuaian;
+                                      if($baru==1){
                                       echo '<div class="col-md-6">
                                       <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                       <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                       <br>
                                       </div>
-                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Ada</label>
-							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Ada</label>';
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" checked>Sesuai</label>
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" >Tidak Sesuai</label>';
+                                        }else if($baru==2){
+                                          echo '<div class="col-md-6">
+                                      <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
+                                      <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
+                                      <br>
+                                      </div>
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Sesuai</label>
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Sesuai</label>';
+                                        }else if($baru==0){
+                                      echo '<div class="col-md-6">
+                                      <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
+                                      <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
+                                      <br>
+                                      </div>
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Sesuai</label>
+                                      <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" >Tidak Sesuai</label>';
+                                        }
+                                      }
                                     }
                                     
                                     
@@ -385,13 +406,34 @@
                                   
                                   if(strpos($op->nama_role_operator,"Lapangan")!==false)
                                   {
+                                    foreach($this->Model_surat_rekomendasi->get_status_lapangan($id_pengajuan, $syarat->id_jenis_peralatan) as $geting){
+                                    $baru=$geting->id_status_kesesuaian;
+                                    if($baru==1){
                                     echo '<div class="col-md-6">
                                     <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
                                     <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
                                     <br>
                                     </div>
-                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Ada</label>
-							<label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Ada</label>'; 
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" checked>Sesuai</label>
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" >Tidak Sesuai</label>'; 
+                                      }else if($baru==2){
+                                    echo '<div class="col-md-6">
+                                    <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
+                                    <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
+                                    <br>
+                                    </div>
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Sesuai</label>
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" checked>Tidak Sesuai</label>'; 
+                                      }else if($baru==0){
+                                    echo '<div class="col-md-6">
+                                    <b><text style="margin-left:30px; font-size:12px;">Keterangan Operator Lapangan<text></b>
+                                    <textarea style="margin-left:30px; font-size:13.5px; width:300px;" class="form-control" rows="4" name="'.$syarat->id_jenis_peralatan.'_lap">'.$dket->ket_lap.'</textarea>
+                                    <br>
+                                    </div>
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="1" >Sesuai</label>
+                                    <label class="radio-inline"><input type="radio" name="'.$syarat->id_jenis_peralatan.'_sesuai" value="2" >Tidak Sesuai</label>';                                       
+                                      }
+                                    }
                                   }
                                   
                                   echo ' </div>

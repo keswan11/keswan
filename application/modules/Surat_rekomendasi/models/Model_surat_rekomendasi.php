@@ -206,6 +206,16 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $data = $this->db->get();
     return $data->result();
   }
+  function get_status_lapangan($id_pengajuan, $id_jenis_peralatan)
+  {
+    
+    $this->db->select('id_status_kesesuaian');
+    $this->db->from('tb_data_pengajuan_surat_rekomendasi');
+    $this->db->where('id_pengajuan' , $id_pengajuan);
+    $this->db->where('id_jenis_peralatan' , $id_jenis_peralatan);
+    $data = $this->db->get();
+    return $data->result();
+  }
   function get_list_pengajuan_rekomendasi($id_pengajuan="")
   {
     if($id_pengajuan!="")
