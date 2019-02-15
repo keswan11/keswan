@@ -178,7 +178,7 @@
 												<?php endif ?>  
 											</p>
 										<?php elseif($this->session->userdata('level') == "Admin"): ?>
-											<p>Admin</p>
+											<p style="font-size: 14px">Admin</p>
 										<?php endif ?>
 										<p style="font-size: 14px">
 											<?php

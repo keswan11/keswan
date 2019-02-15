@@ -6,7 +6,7 @@
 <body>
 <?php
 if ($this->session->userdata('level') == "Admin") {
-    echo "<ul class='sidebar-wrapper' id='nav'>";
+    echo "<ul class='sidebar-menu' id='nav'>";
     echo "<li class='header'>MENU</li>";
     $main=$this->db->query("SELECT * FROM tabel_menu WHERE parent = 0 AND role_menu = 'admin' AND aktif = '1' ORDER BY posisi ASC");
     foreach ($main->result() as $m)
@@ -17,10 +17,11 @@ if ($this->session->userdata('level') == "Admin") {
         if($sub->num_rows() >0)
         {
             echo "<li class='nav-item'>";
-            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-left'></i></a>";
-            echo "<ul class='treeview-menu'>";
+            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-right'></i></a>";
+            
+			echo "<ul class='treeview-menu'><div class='nav'></div>";
             foreach ($sub->result() as $s){
-                echo "<li>".anchor($s->link, '<i class="material-icons">code</i>'.$s->nama_menu)."</li>";
+                echo "<li>".anchor($s->link, '<i class="material-icons" style="width: 14px; padding-bottom:0px"></i>'.$s->nama_menu)."</li>";
             }
             echo "</ul>";
             echo "</li>";
@@ -50,7 +51,7 @@ if ($this->session->userdata('level') == "Admin") {
         {
             echo "<li class='nav-item'>";
 			
-            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-right'></i></a>";
+            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-left'></i></a>";
            
 			echo "<ul class='treeview-menu'><div class='nav'></div>";
             foreach ($sub->result() as $s){
