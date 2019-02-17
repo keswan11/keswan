@@ -29,7 +29,7 @@
                         <form action="<?php echo base_url() ?>login/masuk" method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="username" id="your_name" placeholder="Your Name" required />
+                                <input type="text" name="username" id="your_name" placeholder="Username" required />
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
