@@ -8,13 +8,20 @@
 		<div class="card-header card-header-tabs card-header-primary">
 		<div class="nav-tabs-navigation">
 		<div class="nav-tabs-wrapper">
-			<h3 class="box-title">Detail
+			<h2 class="box-title">Detail
 				<?php foreach($data_pengajuan as $dpengajuan){ $nama_pengajuan=$dpengajuan->nama_jenis_pengajuan;
 				echo $nama_pengajuan;}?>
-			</h3>
+			</h2>
 		</div>
 		</div>
 		</div>
+    <hr>
+  </div>
+  <div class="card">
+             <div class="card-header card-header-tabs card-header-primary">
+               <h3 class="widget-user-username">Detail Tempat Praktik</h3>
+               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
+             </div>
 
 		<?php
 		  echo form_open('surat_rekomendasi/detail','class="form-horizontal"');
@@ -150,17 +157,37 @@
                <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
              </div>
              
-			<div class="card-body">
+			<div class="card-body">     
 			<div class="row">
               
+      <?php
+      $submit="";
+      ?>
               <?php foreach($get_data_berkas as $dberkas)
               {?>
+                <?php if($dberkas->isi_biodata_berkas == null){ 
+                $submit = '<button type="submit" class="btn btn-info pull-right" name="submit">Submit</button>';
+                ?>
+                  <div class="col-md-4">
+                    <h3 class="title" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dberkas->nama_jenis_biodata))?></h3>
+                    <input type="hidden" class="form-control-file" name="id_berkas[]" value="<?php echo $dberkas->id_berkas ?>">
+                    <input type="hidden" class="form-control-file" name="id_gambar[]" value="<?php echo $dberkas->id_biodata_berkas ?>">
+                    <input type="file" class="form-control-file" name="userfile[]">
+                  </div>
+                  
+                <?php }else{ ?>
                   <div class="col-md-4">
                     <h3 class="title" style="margin-left:14px;"> <?php echo ucwords(str_replace("_"," ",$dberkas->nama_jenis_biodata))?></h3>
                     <img width="300px" height="auto" src="<?php echo base_url()."images/".$dberkas->isi_biodata_berkas;?>">
                   </div>
+
+                <?php } ?>
                 <?php   }?>
-              
+      <div class="col-md-12">
+			<div class="box-footer pull-right">
+      <?php echo $submit ?>
+      </div>
+      </div>
             </div>
             </div>
        </div>
