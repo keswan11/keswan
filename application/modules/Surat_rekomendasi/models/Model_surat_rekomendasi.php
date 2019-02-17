@@ -410,6 +410,8 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
     $terakhir=$query_terakhir->row();
     $idRow=$terakhir->id_terakhir;
     $idRow_berkas=$idRow+1;
+    $id_status_pengajuan = 1;
+    
     
     foreach($gambar AS $key => $val){
       if($_FILES['userfile']['name'][$key] == null){
@@ -419,6 +421,7 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
           'id_biodata_berkas' 	=> $_POST['id_gambar'][$key],
           'isi_biodata_berkas' 	=> null
         );
+        $id_status_pengajuan = 0;
       }
       else{
 
@@ -438,10 +441,11 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
 
     $this->db->insert_batch('tb_data_berkas', $ug);
 
+//insert tb list pengajuan
+
 		$id_jenis_pengajuan=$this->input->post('id_jenis_pengajuan');
 		$id_member=$this->session->userdata('id_member');
 		$id_wilayah=$this->input->post('id_wilayah');
-		$id_status_pengajuan=1;
     $detail_wilayah=$this->input->post('detail_wilayah');
 		$dpengajuan=$this->get_persyaratan_by_jenis_pengajuan($id_jenis_pengajuan);
 
@@ -490,7 +494,32 @@ AND a.id_jenis_pengajuan=$id_jenis_pengajuan";
           alert('Data Berhasil Di Tambahkan !');
            window.location.href='".base_url()."surat_rekomendasi/list_surat_rekomendasi/".$id_jenis_pengajuan."';
           </script>";
-	}
+  }
+  
+  function lengkapi_surat_rekomendasi(){
+
+    $gambar = $_FILES['userfile']['name'];
+    $aug = array();
+    $tgl = substr(md5(date('Y-m-d HH:mm:ss')), 0, 5);
+
+    foreach($gambar as $key => $val){
+      
+      $ext = explode('.', basename($_FILES['userfile']['name'][$key]));
+        
+      $path = $tgl."_".$key ."." . $ext[count($ext)-1];
+      
+      move_uploaded_file($_FILES['userfile']['tmp_name'][$key], './images/'.$path);
+
+      $id_biodata_berkas = $_POST['id_gambar'][$key];
+      $id_berkas = $_POST['id_berkas'][$key];
+
+      $sql="UPDATE tb_data_berkas SET isi_biodata_berkas='$path'
+          WHERE id_berkas=$id_berkas AND id_biodata_berkas=$id_biodata_berkas";
+
+  	  $this->db->query($sql);
+    }
+
+  }
 
   function input_detail_surat_rekomendasi($id_operator=0)
 	{

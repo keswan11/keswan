@@ -193,6 +193,9 @@ class Surat_rekomendasi extends CI_Controller {
 			$this->Model_surat_rekomendasi->input_surat_rekomendasi();
 		}
 	}
+	function lengkapi(){
+		$this->Model_surat_rekomendasi->lengkapi_surat_rekomendasi();
+	}
 
 
 	function detail()

@@ -72,6 +72,9 @@
 						  if ($dsurat->id_status_pengajuan <=6) {
 							$status = '<a href="'.base_url().'surat_rekomendasi/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'"><button class="btn btn-primary">Detail</button></a> &nbsp';
 						  }
+						  if ($dsurat->id_status_pengajuan == 0) {
+							$status = '<a href="'.base_url().'surat_rekomendasi/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'"><button class="btn btn-warning">Lengkapi</button></a> &nbsp';
+						  }
 						  elseif($dsurat->id_status_pengajuan >= 8)
 						  {
 							$status = '<button class="btn btn-default" disabled>submitted</button> &nbsp;'.anchor(site_url($this->uri->segment(1).'/cetak/'.$dsurat->id_pengajuan.''), "Cetak", array("class" => "btn  btn-primary"));
