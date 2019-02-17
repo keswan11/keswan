@@ -1,22 +1,4 @@
-<head>
-
-	
-
-	
-	<!-- Ionicons -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables/dataTables.bootstrap.css">
-	
-	
-	<!-- Bootstrap 3.3.6 -->
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css">
-	
-  
-  
-
-</head>
-
-	  
+ 
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
@@ -39,7 +21,8 @@
 					?>
 
 					</small>
-					
+					<div class="card-header">
+					</div>
 					    <input type="text" name="id_jenis_pengajuan" hidden="true" value="<?php echo $id_jenis_pengajuan; ?>"></input>
 						<input type="text" name="id_pengajuan" hidden="true" value="<?php echo $id_pengajuan; ?>"></input>
 						<input type="text" name="id_member" hidden="true" value="<?php echo $id_member; ?>"></input>
@@ -48,8 +31,8 @@
 						  echo form_open_multipart('surat_izin/update','class="form-horizontal"');
 						?>
 				
-				<div class="table-responsive">
-                    <table id="tabel" class="table table-bordered table-hover">
+				<div class="card-body">
+                    <table id="tabel" style="width: 103%" class="table table-bordered table-hover" class="margin-bottom: 100px">
                       <thead class=" text-primary">
 						  <tr>
 							<td>Nama Member</td>

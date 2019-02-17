@@ -1,7 +1,4 @@
-
-
-	  
-      <!-- End Navbar -->
+<!-- End Navbar -->
 <div class="content">
 <div class="container-fluid">
 <div class="row">
@@ -33,16 +30,16 @@
 						?>
 				
 				<div class="card-body">
-                    <table id="tabel" style="width: 118%" class="table table-bordered table-hover">
+                    <table id="tabel" style="width: 117%" class="table table-bordered table-hover">
                       <thead class=" text-primary">
-						  <tr>
-							<td style="width: 20%">Nama Member</td>
-							<td style="width: 30%">Jenis Pengajuan</td>
-							<td style="width: 10%">Wilayah</td>
-							<td style="width: 20%">Status Pengajuan</td>
-							<td style="width: 20%">Tanggal Dibuat</td>
-							<td>Aksi</td>
-						  </tr>
+						  
+							<th style="">Nama Member</th>
+							<th>Jenis Pengajuan</th>
+							<th>Wilayah</th>
+							<th>Status Pengajuan</th>
+							<th>Tanggal Dibuat</th>
+							<th>Aksi</th>
+						  
 						</thead>
                     <tbody>
                         	  
@@ -80,12 +77,12 @@
 							$status = '<button class="btn btn-default" disabled>submitted</button> &nbsp;'.anchor(site_url($this->uri->segment(1).'/cetak/'.$dsurat->id_pengajuan.''), "Cetak", array("class" => "btn  btn-primary"));
 						  }
 						echo '<tr>
-						<td>'.$dsurat->isi_biodata_member.'</td>
-						<td>'.$dsurat->nama_jenis_pengajuan.'</td>
-						<td>'.$dsurat->nama_wilayah.'</td>
-						<td>'.$a.'</td>
-						 <td>'.$dsurat->tgl.'</td>
-						 <td>'.$status.'</td>
+							<td>'.$dsurat->isi_biodata_member.'</td>
+							<td>'.$dsurat->nama_jenis_pengajuan.'</td>
+							<td>'.$dsurat->nama_wilayah.'</td>
+							<td>'.$a.'</td>
+							 <td>'.$dsurat->tgl.'</td>
+							 <td>'.$status.'</td>
 						</tr>';
 						$i++;}?>
 					  

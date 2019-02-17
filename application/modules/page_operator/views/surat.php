@@ -1,11 +1,3 @@
-<head>
-	<!-- Ionicons -->
-	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/plugins/datatables/dataTables.bootstrap.css">
-
-	<!-- Bootstrap 3.3.6 -->
-	<link rel="stylesheet" href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css">
-</head>
 
 <!-- End Navbar -->
 <div class="content">
@@ -13,9 +5,9 @@
 <div class="row">
 <div class="col-md-12">
 	<div class="card">
-	<div class="card-header card-header-primary">
-		<h3><?php echo $title;?></h3><br>
-	</div>
+		<div class="card-header card-header-primary">
+			<h3><?php echo $title;?></h3><br>
+		</div>
 			  <?php if($this->session->flashdata('message')): ?>
 				<div class="row">
 				  <div class="col-sm-12">
@@ -36,22 +28,25 @@
 				$end_adm_lap = end($get_adm_lap);
 				$status = array('Terkirim', 'Disposisi', 'Terverifikasi Administrasi', 'Terverifikasi Lapangan', 'Terbitkan');
 			   ?>
-			<div class="table-responsive"> 
-			  <table id="tabel" style="width: 102%" class="table table-bordered table-hover">
+			<div class="card-header">
+			</div>
+			<div> 
+			<div class="card-body"> 
+			  <table  id="tabel" style="width: 101%" class="table table-bordered table-hover">
 				<thead class="text-primary"  >
-				  <tr>
-					<td>ID Pengajuan</td>
-					<td>ID Member</td>
-					<td style="width: 30%">Jenis Pengajuan</td>
-					<td>Wilayah</td>
-					<td style="width: 20%">Jenis Warga</td>
-					<td style="width: 20%">Status Sekarang</td>
-					<td>Detail</td>
-					  <td>Cetak</td>
+				  
+					<th>ID Pengajuan</th>
+					<th>ID Member</th>
+					<th >Jenis Pengajuan</th>
+					<th>Wilayah</th>
+					<th >Jenis Warga</th>
+					<th >Status Sekarang</th>
+					<th>Detail</th>
+					  <th>Cetak</th>
 					<?php if( $end_adm_lap != 'Administrasi' && $end_adm_lap != 'Lapangan' ): ?>
-					  <td style="width: 70%" >Update Status Pengajuan</td>
+					  <td >Update Status Pengajuan</td>
 					<?php endif ?>
-				  </tr>
+				  
 				</thead>
 				<tbody>
 				  <?php
@@ -168,7 +163,7 @@
                                 }
 
                                  //SURAT REKOMENDASI
-                              elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 12 || $data->id_jenis_pengajuan == 13 || $data->id_jenis_pengajuan == 14 || $data->id_jenis_pengajuan == 15 || $data->id_jenis_pengajuan == 16 || $data->id_jenis_pengajuan == 17 || $data->id_jenis_pengajuan == 18)
+                              elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 12 || $data->id_jenis_pengajuan == 13 || $data->id_jenis_pengajuan == 14 || $data->id_jenis_pengajuan == 15 || $data->id_jenis_pengajuan == 16 || $data->id_jenis_pengajuan == 17 || $data->id_jenis_pengajuan == 18 || $data->id_jenis_pengajuan == 29)
                                 { 
                                   
                                     echo '<a href="'.base_url().'page_operator/cetak_rekomendasi/'.$data->id_pengajuan.'"><button class="btn btn-block btn-info">Cetak</button></a>';   
@@ -272,6 +267,23 @@
                                   </ul>
                                 </div>'; 
                                 }
+								elseif($data->id_jenis_pengajuan == 29)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_3/"><button class="btn btn-block btn-info">Cetak</button></a>';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell_3/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
+                                  echo '<div class="dropdown user user-menu">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+                                    Import
+                                  </a>
+                                  <ul class="dropdown-menu">
+                                  <form method="post" action="'.base_url().'page_operator/import/'.$data->id_pengajuan.'" enctype="multipart/form-data">
+                                      <input type="file" name="file">
+                                      <br>
+                                      <button type="submit" name="import">Import</button>
+                                    </form>
+                                  </ul>
+                                </div>'; 
+                                }
                               }else{
                                  if($data->id_jenis_pengajuan == 13 || $data->id_jenis_pengajuan == 17)
                                 {
@@ -289,6 +301,11 @@
                                   echo '<a href="'.base_url().'page_operator/cetak_excell_3/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
                                 }
                                 elseif($data->id_jenis_pengajuan == 11 || $data->id_jenis_pengajuan == 15)
+                                {
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px">';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
+                                }
+								elseif($data->id_jenis_pengajuan == 29)
                                 {
                                   echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><img src="'.base_url().'images/icons8-pdf-26.png" style="padding-right:25px">';
                                   echo '<a href="'.base_url().'page_operator/cetak_excell/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >'; 
@@ -330,6 +347,7 @@
 				  <?php endforeach ?>
 				</tbody>
 			  </table>
+			</div>
 			</div>
 		</div>
 		  

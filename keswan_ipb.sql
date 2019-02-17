@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2019 at 11:24 AM
+-- Generation Time: Feb 17, 2019 at 07:50 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 5.6.39
 
@@ -97,7 +97,7 @@ INSERT INTO `tabel_menu` (`menu_id`, `posisi`, `nama_menu`, `icon`, `link`, `par
 (55, 15, 'Konfigurasi Email', '-', 'config_email', '0', 'admin', '1'),
 (56, 4, 'SIP Dokter Hewan Spesialis WNI', 'fa fa-circle-o', 'surat_izin/list_surat_izin/27', '49', 'member', '1'),
 (57, 4, 'SIP Dokter Hewan Spesialis WNA', 'fa fa-circle-o', 'surat_izin/list_surat_izin/28', '15', 'member', '1'),
-(58, 4, 'Surket Tempat Paramedik Veteriner', 'fa fa-circle-o', 'surat_rekomendasi/list_surat_rekomendasi/29', '16', 'member', '1');
+(58, 5, 'Surket Tempat Paramedik Veteriner', 'fa fa-circle-o', 'surat_rekomendasi/list_surat_rekomendasi/29', '16', 'member', '1');
 
 -- --------------------------------------------------------
 
@@ -234,7 +234,10 @@ INSERT INTO `tb_data_berkas` (`id_berkas`, `id_biodata_berkas`, `isi_biodata_ber
 (20, 35, 'f1a7b_2.'),
 (21, 36, '24726_0.'),
 (21, 17, '24726_1.'),
-(21, 35, '24726_2.');
+(21, 35, '24726_2.'),
+(22, 36, '7f77e_0.png'),
+(22, 17, '7f77e_1.png'),
+(22, 35, '7f77e_2.png');
 
 -- --------------------------------------------------------
 
@@ -472,7 +475,12 @@ INSERT INTO `tb_data_penanggung_jawab` (`id_penanggung_jawab`, `id_biodata_penan
 (23, 1, 'test peralatan 1'),
 (23, 2, 'test peralatan 2'),
 (23, 3, '32131231'),
-(23, 4, 'asd11ad@gmail.com');
+(23, 4, 'asd11ad@gmail.com'),
+(24, 12, '551232222'),
+(24, 1, 'test ke admin12'),
+(24, 2, 'test ke admin33'),
+(24, 3, '312312111'),
+(24, 4, '2g11@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -1233,7 +1241,28 @@ INSERT INTO `tb_data_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_jenis_per
 (91, 73, 0, NULL, NULL, 2, 0),
 (91, 74, 0, NULL, NULL, 2, 0),
 (91, 75, 0, NULL, NULL, 2, 0),
-(91, 76, 0, NULL, NULL, 2, 0);
+(91, 76, 0, NULL, NULL, 2, 0),
+(92, 89, 1, NULL, NULL, 1, 0),
+(92, 18, 1, NULL, NULL, 1, 0),
+(92, 102, 1, NULL, NULL, 1, 0),
+(92, 88, 0, NULL, NULL, 2, 0),
+(92, 103, 0, NULL, NULL, 2, 0),
+(92, 104, 0, NULL, NULL, 2, 0),
+(92, 105, 0, NULL, NULL, 2, 0),
+(92, 40, 0, NULL, NULL, 2, 0),
+(92, 106, 0, NULL, NULL, 2, 0),
+(92, 91, 0, NULL, NULL, 2, 0),
+(92, 93, 0, NULL, NULL, 2, 0),
+(92, 94, 0, NULL, NULL, 2, 0),
+(92, 95, 0, NULL, NULL, 2, 0),
+(92, 96, 0, NULL, NULL, 2, 0),
+(92, 97, 0, NULL, NULL, 2, 0),
+(92, 98, 0, NULL, NULL, 2, 0),
+(92, 99, 0, NULL, NULL, 2, 0),
+(92, 125, 0, NULL, NULL, 2, 0),
+(92, 100, 0, NULL, NULL, 2, 0),
+(92, 101, 0, NULL, NULL, 2, 0),
+(92, 56, 0, NULL, NULL, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -1490,7 +1519,14 @@ INSERT INTO `tb_data_tempat_praktik` (`id_tempat_praktik`, `id_biodata_tempat_pr
 (23, 41, 'KAB. ACEH BARAT'),
 (23, 3, '123'),
 (23, 45, '123123'),
-(23, 4, '3434343@gmail.com');
+(23, 4, '3434343@gmail.com'),
+(24, 1, 'test ke admin'),
+(24, 2, 'test ke admin1'),
+(24, 40, 'Aceh'),
+(24, 41, 'KAB. ACEH BARAT DAYA'),
+(24, 3, '32232323222'),
+(24, 45, '12311111'),
+(24, 4, 'qwe@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -2625,7 +2661,8 @@ INSERT INTO `tb_list_pengajuan_surat_rekomendasi` (`id_pengajuan`, `id_member`, 
 (88, 3, 20, NULL, 19, 1, 20, 18, '1', '2019-02-15 09:21:48'),
 (89, 3, 21, NULL, 23, 1, 21, 19, '1', '2019-02-15 09:34:31'),
 (90, 3, 22, NULL, 29, 1, 22, 20, '1', '2019-02-15 09:36:28'),
-(91, 3, 23, NULL, 11, 1, 23, 21, '1', '2019-02-15 09:51:49');
+(91, 3, 23, NULL, 11, 1, 23, 21, '1', '2019-02-15 09:51:49'),
+(92, 3, 24, NULL, 29, 1, 24, 22, '1', '2019-02-16 10:27:07');
 
 -- --------------------------------------------------------
 
@@ -6644,7 +6681,22 @@ INSERT INTO `tb_pengajuan_role_operator` (`id_jenis_pengajuan`, `id_status_penga
 (28, 2, 2),
 (28, 3, 3),
 (28, 4, 1),
-(28, 5, 1);
+(28, 5, 1),
+(29, 1, 1),
+(29, 1, 7),
+(29, 1, 10),
+(29, 2, 2),
+(29, 2, 8),
+(29, 2, 11),
+(29, 3, 3),
+(29, 3, 9),
+(29, 3, 12),
+(29, 4, 1),
+(29, 4, 7),
+(29, 4, 10),
+(29, 5, 1),
+(29, 5, 7),
+(29, 5, 10);
 
 -- --------------------------------------------------------
 
@@ -7886,7 +7938,7 @@ ALTER TABLE `tb_list_pengajuan_surat_izin`
 -- AUTO_INCREMENT for table `tb_list_pengajuan_surat_rekomendasi`
 --
 ALTER TABLE `tb_list_pengajuan_surat_rekomendasi`
-  MODIFY `id_pengajuan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id_pengajuan` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `tb_menu_member`

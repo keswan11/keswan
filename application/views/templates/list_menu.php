@@ -51,7 +51,7 @@ if ($this->session->userdata('level') == "Admin") {
         {
             echo "<li class='nav-item'>";
 			
-            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-left'></i></a>";
+            echo "<a href='#'><i class='$m->icon'></i><span>".$m->nama_menu."</span><i class='fa fa-angle-left pull-right'></i></a>";
            
 			echo "<ul class='treeview-menu'><div class='nav'></div>";
             foreach ($sub->result() as $s){
@@ -74,7 +74,7 @@ if ($this->session->userdata('level') == "Admin") {
 	
 	
 	
-    <ul class="sidebar-menu tree" data-widget="tree">
+    <ul class="sidebar-menu tree" id='nav' data-widget="nav">
       <?php
     //list menu
       $uri4 = strtolower(str_replace('_', ' ', $this->uri->segment(4)));
@@ -88,11 +88,11 @@ if ($this->session->userdata('level') == "Admin") {
 
         $active = '';
         if(strtolower($row->nama_jenis_pengajuan) == $uri4){
-          $active = 'active';
+          
       } 
       ?>
 	  
-      <li style="padding-top:0px" class="nav-item <?php echo $active ?>">
+      <li style="padding-top:0px" class="nav-item">
 	  
           <a href="<?php echo base_url()."page_operator/index/".$str_role."/".$link ?>">
             <i class="material-icons" style="width: 14px;"></i>
