@@ -7,7 +7,7 @@
               
 			  <div class="card">
                 <div class="card-header card-header-primary">
-                  <h1><?php echo $title;?></h1>
+                  <h3><?php echo $title;?></h3>
                 </div>
                 
 				<div class="card-body">
@@ -32,7 +32,7 @@
 						?>
 				
 				<div class="card-body">
-                    <table id="tabel" style="width: 103%" class="table table-bordered table-hover" class="margin-bottom: 100px">
+                    <table id="tabel" style="width: 103%; font-size: 13px; font-family: arial;" class="table table-bordered table-hover">
                       <thead class=" text-primary">
 						  <tr>
 							<td>Nama Member</td>
