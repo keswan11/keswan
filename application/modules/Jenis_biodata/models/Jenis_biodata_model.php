@@ -113,8 +113,8 @@ class Jenis_biodata_model extends CI_Model
         INNER JOIN tb_jenis_biodata ON tb_jenis_biodata.id_jenis_biodata = tb_data_member.id_biodata_member
         INNER JOIN tb_jenis_input ON tb_jenis_input.id_jenis_input = tb_jenis_biodata.id_tipe_jenis_biodata
         WHERE tb_data_member.id_member = $id_member
-        AND (tb_jenis_biodata.id_jenis_biodata = 12
-        OR tb_jenis_biodata.id_jenis_biodata = 17)
+        AND (tb_jenis_biodata.id_jenis_biodata = 1
+        OR tb_jenis_biodata.id_jenis_biodata = 18)
         ORDER BY tb_jenis_biodata.id_jenis_biodata ASC
         ";
         return $this->db->query($query);

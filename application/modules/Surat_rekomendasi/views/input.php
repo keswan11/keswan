@@ -282,18 +282,18 @@
          
         <div class="tab-pane" id="Detail3">
           <div class="card-footer">
-            <h4 class="col-sm-3" style="margin-left:14px;">Upload KTP Pemohon</h4>
-            <input type="hidden" class="form-control-file" name="id_gambar[]" value="36">
+            <h4 class="col-sm-3" style="margin-left:14px;">Surat Permohonan</h4>
+            <input type="hidden" class="form-control-file" name="id_gambar[]" value="45">
             <input type="file" class="form-control-file" name="userfile[]">
           </div>
           <div class="card-footer">
             <h4 class="col-sm-3" style="margin-left:14px;">Upload KTP Pemohon</h4>
-            <input type="hidden" class="form-control-file" name="id_gambar[]" value="17">
+            <input type="hidden" class="form-control-file" name="id_gambar[]" value="18">
             <input type="file" class="form-control-file" name="userfile[]">
           </div>
           <div class="card-footer">
             <h4 class="col-sm-3" style="margin-left:14px;">Upload Bukti Pembayaran</h4>
-            <input type="hidden" class="form-control-file" name="id_gambar[]" value="35">
+            <input type="hidden" class="form-control-file" name="id_gambar[]" value="41">
             <input type="file" class="form-control-file" name="userfile[]">
           </div>
 		  	<br><b>

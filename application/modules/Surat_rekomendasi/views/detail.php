@@ -8,13 +8,20 @@
 		<div class="card-header card-header-tabs card-header-primary">
 		<div class="nav-tabs-navigation">
 		<div class="nav-tabs-wrapper">
-			<h3 class="box-title">Detail
+			<h2 class="box-title">Detail
 				<?php foreach($data_pengajuan as $dpengajuan){ $nama_pengajuan=$dpengajuan->nama_jenis_pengajuan;
 				echo $nama_pengajuan;}?>
-			</h3>
+			</h2>
 		</div>
 		</div>
 		</div>
+    <hr>
+  </div>
+  <div class="card">
+             <div class="card-header card-header-tabs card-header-primary">
+               <h3 class="widget-user-username">Detail Tempat Praktik</h3>
+               <h5 class="widget-user-desc"><?php echo $nama_pengajuan; ?></h5>
+             </div>
 
 		<?php
 		  echo form_open('surat_rekomendasi/detail','class="form-horizontal"');
