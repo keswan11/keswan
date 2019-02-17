@@ -30,7 +30,7 @@
 						?>
 				
 				<div class="card-body">
-                    <table id="tabel" style="width: 117%" class="table table-bordered table-hover">
+                    <table id="tabel" style="width: 116%" class="table table-bordered table-hover">
                       <thead class=" text-primary">
 						  
 							<th style="">Nama Member</th>
