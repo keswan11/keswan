@@ -482,7 +482,7 @@
                  
                     echo '
                       <div class="card-footer">
-                      <button  style="margin-left: 650px" type="submit" onclick="'.$onclick_submit.'" class="btn btn-success pull-right" name="submit">Verfikasi</button>
+                      <button  style="margin-left: 680px" type="submit" onclick="'.$onclick_submit.'" class="btn btn-success pull-right" name="submit">Verfikasi</button>
             
                       <a onclick="'.$onclick_tolak.'" class="btn btn-danger pull-right" href="'.base_url().'surat_rekomendasi/tolak_surat/'.$id_jenis_pengajuan.'/'.$id_pengajuan.'">
                       Tolak Surat Rekomendasi

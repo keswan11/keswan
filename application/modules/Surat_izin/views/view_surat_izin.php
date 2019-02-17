@@ -7,7 +7,7 @@
               
 			  <div class="card">
                 <div class="card-header card-header-primary">
-                  <h1><?php echo $title;?></h1>
+                  <h3><?php echo $title;?></h3>
                 </div>
                 
 				<div class="card-body">
@@ -32,15 +32,15 @@
 						?>
 				
 				<div class="card-body">
-                    <table id="tabel" style="width: 103%" class="table table-bordered table-hover" class="margin-bottom: 100px">
+                    <table id="tabel" style="width: 103%; font-size: 13px; font-family: arial;" class="table table-bordered table-hover">
                       <thead class=" text-primary">
 						  <tr>
-							<td>Nama Member</td>
-							<td>Jenis Pengajuan</td>
-							<td>Wilayah</td>
-							<td>Status Pengajuan</td>
-							<td>Tanggal Dibuat</td>
-							<td>Aksi</td>
+							<th>Nama Member</th>
+							<th>Jenis Pengajuan</th>
+							<th>Wilayah</th>
+							<th>Status Pengajuan</th>
+							<th>Tanggal Dibuat</th>
+							<th>Aksi</th>
 						  </tr>
 						</thead>
                     <tbody>
@@ -73,7 +73,7 @@
                           $onclick="return confirm('Anda yakin ingin submit data ini ?')";
                           $status = '
                           
-                          <a class="btn btn-info" href="'.base_url().'surat_izin/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'">Detail</a>
+                          <a style="width: 15%; padding-left: 12px" class="btn btn-info" href="'.base_url().'surat_izin/detail/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'">Detail</a>
                           
                           &nbsp;
                           '
@@ -119,7 +119,7 @@
                           
                           $status.='&nbsp;
                           
-                          <a class="btn btn-warning" href="'.base_url().'surat_izin/edit/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'">Edit</a>';
+                          <a style="width: 15%; padding-left: 18px" class="btn btn-warning" href="'.base_url().'surat_izin/edit/'.$dsurat->id_jenis_pengajuan.'/'.$dsurat->id_pengajuan.'">Edit</a>';
                           
                           
                           
