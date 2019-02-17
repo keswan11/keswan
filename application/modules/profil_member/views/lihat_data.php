@@ -25,14 +25,14 @@
 						<ul class="nav nav-tabs" data-tabs="tabs">
 						<li class="nav-item">
                           <a class="nav-link active" href="#Biodata" data-toggle="tab" >
-                            <i class="material-icons">assignment</i> Detail Tempat Praktik
+                            <i class="material-icons">assignment</i> Detail Profil Member
 							<div class="ripple-container"></div>
                           </a>
                         </li>
 						
 						<li class="nav-item">
                           <a class="nav-link" href="#KTP"  data-toggle="tab">
-                            <i class="material-icons">assignment_ind</i> Detail Data Penanggung Jawab
+                            <i class="material-icons">assignment_ind</i> KTP Penanggung Jawab
                             <div class="ripple-container"></div>
                           </a>
                         </li>
