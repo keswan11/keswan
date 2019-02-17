@@ -269,8 +269,8 @@
                                 }
 								elseif($data->id_jenis_pengajuan == 29)
                                 {
-                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_3/"><button class="btn btn-block btn-info">Cetak</button></a>';
-                                  echo '<a href="'.base_url().'page_operator/cetak_excell_3/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_lampiran_4/"><img src="'.base_url().'images/icons8-pdf-26.png" >';
+                                  echo '<a href="'.base_url().'page_operator/cetak_excell/'.$data->id_pengajuan.'"><img src="'.base_url().'images/icons8-microsoft-excel-file-26.png" >';
                                   echo '<div class="dropdown user user-menu">
                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
                                     Import
